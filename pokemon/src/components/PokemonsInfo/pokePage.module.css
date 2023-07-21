@@ -1,0 +1,37 @@
+.pokePage {
+  padding: 15rem 6rem 0 6rem;
+}
+
+.list {
+  width: 20vw;
+  padding: 2rem 2rem;
+}
+
+.element {
+  background-color: var(--grey);
+  width: 12rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--blue-dark);
+  padding: 0.5rem 0 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  text-transform: capitalize;
+}
+
+.element:hover {
+  background-color: var(--blue-light);
+  color: white;
+}
+
+.element:focus {
+  background-color: var(--yellow-main);
+  color: white;
+  font-weight: bold;
+}
+
+.pageOutlet {
+  display: flex;
+}

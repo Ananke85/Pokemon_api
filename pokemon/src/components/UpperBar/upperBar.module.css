@@ -1,0 +1,26 @@
+.upperBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upperBar a {
+  text-decoration: none;
+  color: white;
+  background-color: var(--blue-medium);
+  border-radius: 2rem;
+  padding: 0.5rem;
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.upperBar a:hover {
+  background-color: var(--blue-light);
+}
+
+.upperBar a:focus {
+  background-color: var(--yellow-main);
+}

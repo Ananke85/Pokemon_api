@@ -1,7 +1,7 @@
 import styles from "./navBar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/pokemon_logo.png";
-import { ABOUT_US, BLOG, HOME, POKEMONS } from "../../route-paths";
+import { ABOUT_US, BLOG, HOME, POKEPAGE } from "../../route-paths";
 
 const NavBar = () => {
   return (
@@ -18,7 +18,7 @@ const NavBar = () => {
         </div>
 
         <div className={styles.links}>
-          <Link to={POKEMONS}>POKÉMONS</Link>
+          <Link to={POKEPAGE}>POKÉMONS</Link>
           <Link to={ABOUT_US}>ABOUT US</Link>
           <Link to={BLOG}>BLOG</Link>
         </div>
