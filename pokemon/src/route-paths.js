@@ -1,0 +1,5 @@
+export const HOME = "/home"
+export const POKEMONS = "/pokemons"
+export const ABOUT_US = "/about-us"
+export const CONTACT = "/contact"
+export const BLOG = "/blog"
