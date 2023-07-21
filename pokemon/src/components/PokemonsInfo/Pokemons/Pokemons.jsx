@@ -5,7 +5,6 @@ import { Link, Outlet } from "react-router-dom";
 
 const Pokemons = () => {
   const { data: pokemons } = useQuery(["pokemons"], getAllPokemons);
-  console.log("los pokemons", pokemons);
 
   return (
     <>

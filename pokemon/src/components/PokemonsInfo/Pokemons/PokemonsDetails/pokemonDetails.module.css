@@ -6,3 +6,13 @@
 .name {
   text-transform: capitalize;
 }
+
+.abilities {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+.abilityTitle {
+  text-transform: uppercase;
+}
