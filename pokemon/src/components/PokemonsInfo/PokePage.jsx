@@ -6,7 +6,7 @@ const PokePage = () => {
   return (
     <>
       <div className={styles.pokePage}>
-        <UpperBar />
+        <UpperBar/>
         <Outlet/>
       </div>
     </>

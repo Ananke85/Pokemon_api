@@ -5,26 +5,27 @@ import { ABOUT_US, BLOG, HOME, POKEPAGE } from "../../route-paths";
 
 const NavBar = () => {
   return (
+
+    
     <>
-      <nav className={styles.navBar}>
+      <div className={styles.navBar}>
         <div className={styles.content}>
-        <Link to={HOME}>
-          <img src={logo} alt="pokemon logo" className={styles.logo} />
-        </Link>
+          <Link to={HOME}>
+            <img src={logo} alt="pokemon logo" className={styles.logo} />
+          </Link>
 
-        <div className={styles.searchBar}>
-          <h5 className={styles.search}>Encuentra tu Pokémon</h5>
-          <button>BUSCAR</button>
-        </div>
+          <div className={styles.searchBar}>
+            <h6 className={styles.search}>Encuentra tu Pokémon</h6>
+            <button>BUSCAR</button>
+          </div>
 
-        <div className={styles.links}>
-          <Link to={POKEPAGE}>POKÉMONS</Link>
-          <Link to={ABOUT_US}>ABOUT US</Link>
-          <Link to={BLOG}>BLOG</Link>
+          <div className={styles.links}>
+            <Link to={POKEPAGE}>POKÉMONS</Link>
+            <Link to={ABOUT_US}>ABOUT US</Link>
+            <Link to={BLOG}>BLOG</Link>
+          </div>
         </div>
-        </div>
-        
-      </nav>
+      </div>
     </>
   );
 };

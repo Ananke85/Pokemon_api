@@ -1,19 +1,23 @@
 .upperBar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1em;
+  padding: 1em;
+  /* position: relative; */
 }
 
 .upperBar a {
   text-decoration: none;
   color: white;
   background-color: var(--blue-medium);
-  border-radius: 2rem;
-  padding: 0.5rem;
-  width: 9rem;
+  border-radius: 2em;
+  padding: 0.5em;
+  width: 9em;
   display: flex;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -23,4 +27,29 @@
 
 .upperBar a:focus {
   background-color: var(--yellow-main);
+}
+
+/* Media queries for responsiveness */
+@media screen and (min-width: 75em) and (max-width: 95em) {
+  .upperBar {
+    margin-top: 8%; 
+  }
+}
+
+@media screen and (min-width: 50em) and (max-width: 75em) {
+  .upperBar {
+    margin-top: 22%; 
+  }
+}
+
+@media screen and (min-width: 35em) and (max-width: 50em) {
+  .upperBar {
+    margin-top: 35%;
+  }
+}
+
+@media screen and (max-width: 35em) {
+  .upperBar {
+    margin-top: 97%; 
+  }
 }

@@ -1,23 +1,30 @@
 .pokePage {
-  padding: 15rem 6rem 0 6rem;
+  padding: 15em 6em 0 6em;
+}
+
+.pageOutlet {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 3em;
 }
 
 .list {
-  width: 20vw;
-  padding: 2rem 2rem;
+  width: 100%;
+  max-width: 20vw;
+  padding: 2em;
 }
 
 .element {
   background-color: var(--grey);
-  width: 12rem;
-  font-size: 1.3rem;
+  width: 12em;
+  font-size: 1.3em;
   text-decoration: none;
   color: var(--blue-dark);
-  padding: 0.5rem 0 0.5rem 2rem;
+  padding: 0.5em 0 0.5em 2em;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-  border-radius: 1rem;
+  margin-bottom: 1em;
+  border-radius: 1em;
   text-transform: capitalize;
 }
 
@@ -32,6 +39,31 @@
   font-weight: bold;
 }
 
-.pageOutlet {
-  display: flex;
+
+/* Media query for responsiveness */
+@media screen and (max-width: 65em) {
+  .pageOutlet {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 2em;
+    align-items: center;
+    /* display: block; */
+  }
 }
+
+/* Nested CSS Grid for each item */
+.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+}
+
+/* Media query to adjust nested layout */
+@media screen and (max-width: 65em) {
+  .item {
+    display: grid;
+    grid-template-columns: 1fr; /* Use single column layout for small screens */
+    gap: 2em;
+  }
+}
+

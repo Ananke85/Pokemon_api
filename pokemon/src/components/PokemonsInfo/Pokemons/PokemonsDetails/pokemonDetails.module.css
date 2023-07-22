@@ -1,6 +1,6 @@
 .title {
   display: flex;
-  gap: 1rem
+  gap: 1em
 }
 
 .name {
@@ -10,9 +10,10 @@
 .abilities {
 display: flex;
 align-items: center;
-gap: 1rem;
+gap: 1em;
 }
 
 .abilityTitle {
   text-transform: uppercase;
 }
+

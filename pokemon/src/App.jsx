@@ -31,7 +31,6 @@ function App() {
           <Route path={ABOUT_US} element={<About />} />
           <Route path={BLOG} element={<Blog />} />
           <Route path={POKEPAGE} element={<PokePage />}>
-            {/* <Route path="*" element={<PokePage />} /> */}
             <Route path="" element={<Pokemons />} />
             <Route path={POKEMONS} element={<Pokemons />}>
               <Route path={POKEMON_DETAILS} element={<PokemonDetails />} />

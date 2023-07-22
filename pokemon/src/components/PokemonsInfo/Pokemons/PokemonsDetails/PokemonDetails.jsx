@@ -8,13 +8,10 @@ import { useParams } from "react-router-dom";
 
 const PokemonDetails = () => {
   const { name } = useParams();
-
   const { data } = useQuery(["details", name], () => getPokemonDetails(name));
-  // console.log("la data", data);
 
-  const primaryAbility = data && data.abilities[0].ability.name;
-  console.log(primaryAbility);
-  const hiddenAbility = data && data.abilities[1].ability.name;
+  const primaryAbility = data && data.abilities[0]?.ability.name;
+  const hiddenAbility = data && data.abilities[1]?.ability.name;
 
   const { data: primaryAbilityData } = useQuery(
     ["abilities", primaryAbility],
@@ -24,11 +21,10 @@ const PokemonDetails = () => {
     ["abilities", hiddenAbility],
     () => getPokemonAbilities(hiddenAbility)
   );
-  console.log("las habilidades", hiddenAbilityData);
 
   return (
     <>
-      {data && primaryAbilityData && hiddenAbilityData && (
+      {data && (
         <div className={styles.outlet}>
           <div className={styles.title}>
             <h1 className={styles.name}>{data.species.name}</h1>
@@ -43,30 +39,33 @@ const PokemonDetails = () => {
             <h4>Height: {data.height}</h4>
 
             <h4>Weight: {data.weight}</h4>
+            {primaryAbilityData && (
+              <div className={styles.abilities}>
+                <h4>Primary ability: </h4>
+                <h4 className={styles.abilityTitle}>{primaryAbility}.</h4>
+                <p>
+                  {primaryAbilityData.effect_entries
+                    .filter((entry) => entry.language.name === "en")
+                    .map((entry) => (
+                      <div key={entry.name}>{entry.short_effect}</div>
+                    ))}
+                </p>
+              </div>
+            )}
 
-            <div className={styles.abilities}>
-              <h4>Primary ability: </h4>
-            <h4 className={styles.abilityTitle}>{primaryAbility}.</h4>
-              <p>
-                {primaryAbilityData.effect_entries
-                  .filter((entry) => entry.language.name === "en")
-                  .map((entry) => (
-                    <div key={entry.name} >{entry.short_effect}</div>
-                  ))}
-              </p>
-            </div>
-
-            <div className={styles.abilities}>
-              <h4>Hidden ability:</h4>
+            {hiddenAbilityData && (
+              <div className={styles.abilities}>
+                <h4>Hidden ability:</h4>
                 <h4 className={styles.abilityTitle}>{hiddenAbility}.</h4>
-              <p>
-                {hiddenAbilityData.effect_entries
-                  .filter((entry) => entry.language.name === "en")
-                  .map((entry) => (
-                    <div key={entry.name} >{entry.short_effect}</div>
-                  ))}
-              </p>
-            </div>
+                <p>
+                  {hiddenAbilityData.effect_entries
+                    .filter((entry) => entry.language.name === "en")
+                    .map((entry) => (
+                      <div key={entry.name}>{entry.short_effect}</div>
+                    ))}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       )}

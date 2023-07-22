@@ -28,7 +28,6 @@ export const getPokemonDetails = (name) => {
 };
 
 export const getPokemonAbilities = (ability) => {
-  console.log("el nombre", ability)
   return api
     .get(`/ability/${ability}/`)
     .then((res) => res.data)
