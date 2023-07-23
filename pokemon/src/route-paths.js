@@ -1,4 +1,4 @@
-export const HOME = "/home"
+export const HOME = "/"
 export const POKEPAGE = "/pokemons"
 export const ABOUT_US = "/about-us"
 export const CONTACT = "/contact"

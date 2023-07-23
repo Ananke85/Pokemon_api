@@ -1,19 +1,146 @@
 .title {
   display: flex;
-  gap: 1em
+  gap: 1em;
+}
+
+.outlet {
+  margin-top: 2em;
+}
+
+.card {
+  width: 40em;
+  min-height: 55em;
+  padding: 0 2em 1em 2em;
+  border: 1em solid var(--yellow-main);
+  border-radius: 1em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.card > h3 {
+  text-transform: capitalize;
+}
+
+.pokeName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
 }
 
 .name {
   text-transform: capitalize;
 }
 
+.details {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+  align-items: center;
+  font-style: italic;
+  background-color: var(--red);
+  height: 2.5em;
+  width: 31em;
+  padding: 0.2em 1.2em;
+  border-radius: 0.5em;
+}
+
+.type {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
 .abilities {
-display: flex;
-align-items: center;
-gap: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 33em;
+  text-align: justify;
+
 }
 
 .abilityTitle {
   text-transform: uppercase;
 }
 
+.abDescription {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: space-between;
+  height: 3em;
+  width: 33em;
+
+
+}
+
+.image {
+  background-image: url("C:\Users\anank\Documents\Ananke85\Pokemon_api\pokemon\src\assets\background_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1em;
+  border: 0.5em solid var(--yellow-main);
+  width: 25em;
+}
+
+/* Background colors for each type of pokemon */
+
+.Pokemon-normal {
+  background: radial-gradient(circle var(--normal), var(--grey-dark));
+}
+.Pokemon-fire {
+  background: radial-gradient(circle, var(--fire), var(--grey-dark));
+}
+.Pokemon-water {
+  background: radial-gradient(circle, var(--water), var(--grey-dark));
+}
+.Pokemon-grass {
+  background: radial-gradient(circle, var(--grass), var(--grey-dark));
+}
+.Pokemon-electric {
+  background: radial-gradient(circle, var(--electric), var(--grey-dark));
+}
+.Pokemon-ice {
+  background: radial-gradient(circle, var(--ice), var(--grey-dark));
+}
+.Pokemon-figthing {
+  background: radial-gradient(circle, var(--figthing), var(--grey-dark));
+}
+.Pokemon-poison {
+  background: radial-gradient(circle, var(--poison), var(--grey-dark));
+}
+.Pokemon-ground {
+  background: radial-gradient(circle, var(--ground), var(--grey-dark));
+}
+.Pokemon-flying {
+  background: radial-gradient(circle, var(--flying), var(--grey-dark));
+}
+.Pokemon-psychic {
+  background: radial-gradient(circle, var(--psychic), var(--grey-dark));
+}
+.Pokemon-bug {
+  background: radial-gradient(circle, var(--bug), var(--grey-dark));
+}
+.Pokemon-rock {
+  background: radial-gradient(circle, var(--rock), var(--grey-dark));
+}
+.Pokemon-ghost {
+  background: radial-gradient(circle, var(--ghost), var(--grey-dark));
+}
+.Pokemon-dark {
+  background: radial-gradient(circle, var(--dark), var(--grey-dark));
+}
+.Pokemon-dragon {
+  background: radial-gradient(circle, var(--dragon), var(--grey-dark));
+}
+.Pokemon-steel {
+  background: radial-gradient(circle, var(--steel), var(--grey-dark));
+}
+.Pokemon-fairy {
+  background: radial-gradient(circle, var(--fairy), var(--grey-dark));
+}

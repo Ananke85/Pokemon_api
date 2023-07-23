@@ -16,7 +16,28 @@
   --yellow-light: #fcf7e3;
   --yellow-dark: #706a53c0;
   --grey: #eaeeee;
-  --grey-dark: #868888;
+  --grey-dark: #505050;
+
+/* background colors for pokemon type */
+
+  --normal: #a7a87e;
+  --fire: #d98545;
+  --water: #7990e9;
+  --grass: #90c562;
+  --electric: #ecd156;
+  --ice: #acd6d7;
+  --fighting: #a93d31;
+  --poison: #90489b; 
+  --ground: #d7c176; 
+  --flying: #a592e9;
+  --psychic: #dc6488;
+  --bug: #aab744;  
+  --rock: #b0a04c;
+  --ghost: #6c5a94;
+  --dragon: #6d41ee;
+  --dark: #6a594a; 
+  --steel: #b8b8ce; 
+  --fairy: #e2b8bd;
 
   color: var(--blue-dark)
 }

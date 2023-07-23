@@ -22,27 +22,47 @@ const PokemonDetails = () => {
     () => getPokemonAbilities(hiddenAbility)
   );
 
+  const pokemonType = data && data.types[0]?.type.name;
+
+  console.log("el tipo", pokemonType);
+
+  console.log("la data", data);
+
   return (
     <>
       {data && (
         <div className={styles.outlet}>
-          <div className={styles.title}>
+          {/* <div className={styles.title}>
             <h1 className={styles.name}>{data.species.name}</h1>
             <h1>in detail</h1>
-          </div>
-          <div className={styles.card}>
-            <h3>{data.species.name}</h3>
+          </div> */}
+          <div
+            className={`${styles.card} ${
+              pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
+            }`}
+          >
+            <div className={styles.pokeName}>
+              <h3>{data.species.name}</h3>
+              <h4>Experience: {data.base_experience} HP</h4>
+            </div>
+
             <img
+              className={styles.image}
               src={data.sprites.other["official-artwork"].front_default}
             ></img>
-            <h4>Experience: {data.base_experience}</h4>
-            <h4>Height: {data.height}</h4>
 
-            <h4>Weight: {data.weight}</h4>
+            <div className={styles.details}>
+              <h4 className={styles.type}>{pokemonType} pokémon</h4>
+              <h4>HT: {data.height} dm</h4>
+              <h4>WT: {data.weight} hg</h4>
+            </div>
+
             {primaryAbilityData && (
               <div className={styles.abilities}>
-                <h4>Primary ability: </h4>
-                <h4 className={styles.abilityTitle}>{primaryAbility}.</h4>
+                <div className={styles.abDescription}>
+                  <h5>Primary ability:</h5>
+                  <h5 className={styles.abilityTitle}>{primaryAbility}.</h5>
+                </div>
                 <p>
                   {primaryAbilityData.effect_entries
                     .filter((entry) => entry.language.name === "en")
@@ -55,8 +75,10 @@ const PokemonDetails = () => {
 
             {hiddenAbilityData && (
               <div className={styles.abilities}>
-                <h4>Hidden ability:</h4>
-                <h4 className={styles.abilityTitle}>{hiddenAbility}.</h4>
+                <div className={styles.abDescription}>
+                  <h5>Hidden ability:</h5>
+                  <h5 className={styles.abilityTitle}>{hiddenAbility}.</h5>
+                </div>
                 <p>
                   {hiddenAbilityData.effect_entries
                     .filter((entry) => entry.language.name === "en")

@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   background-color: var(--blue-dark);
-  padding: 1.5em;
+  padding: 0.5em;
   border-bottom: solid var(--blue-light) 1em;
   position: fixed;
   top: 0;
@@ -23,7 +23,7 @@
 }
 
 .logo {
-  width: 15em;
+  width: 13em;
   /* position: relative;
   left: -6em; */
 }
@@ -81,7 +81,7 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    padding: 1em;
+    padding: 0.5em;
   }
 
   .content {

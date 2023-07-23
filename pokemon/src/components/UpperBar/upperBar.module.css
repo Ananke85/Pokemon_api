@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  padding: 1em;
   /* position: relative; */
 }
 
@@ -32,7 +31,7 @@
 /* Media queries for responsiveness */
 @media screen and (min-width: 75em) and (max-width: 95em) {
   .upperBar {
-    margin-top: 8%; 
+    margin-top: 2%; 
   }
 }
 
@@ -44,7 +43,7 @@
 
 @media screen and (min-width: 35em) and (max-width: 50em) {
   .upperBar {
-    margin-top: 35%;
+    margin-top: 42%;
   }
 }
 
