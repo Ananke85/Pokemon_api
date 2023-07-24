@@ -4,12 +4,19 @@
 }
 
 .outlet {
-  margin-top: 2em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
 }
-
-.card {
+.container {
   width: 40em;
-  min-height: 55em;
+  height: 53em;
+  perspective: 3000px;
+}
+.card {
+  width: 100%;
+  height: 53em;
   padding: 0 2em 1em 2em;
   border: 1em solid var(--yellow-main);
   border-radius: 1em;
@@ -19,21 +26,57 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  transform: rotateY(0deg);
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  overflow: hidden;
 }
 
 .card > h3 {
   text-transform: capitalize;
 }
 
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 53em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 1em;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+}
+
+.container:hover .card {
+  transform: rotateY(-180deg);
+}
+
+.container:hover .back {
+  transform: rotateY(0deg);
+}
+
 .pokeName {
-  display: flex;
-  justify-content: center;
+  width: 30em;
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.5fr;
   align-items: center;
+  justify-content: center;
   text-transform: capitalize;
+  text-align: center;
+  margin-left: auto;
 }
 
 .name {
   text-transform: capitalize;
+}
+
+.icon {
+  width: 4em;
 }
 
 .details {
@@ -60,7 +103,16 @@
   align-items: flex-start;
   width: 33em;
   text-align: justify;
+}
 
+.abilitiesHidden {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 33em;
+  text-align: justify;
+  position: relative;
+  top: -1.8em;
 }
 
 .abilityTitle {
@@ -74,8 +126,6 @@
   justify-content: space-between;
   height: 3em;
   width: 33em;
-
-
 }
 
 .image {
@@ -85,7 +135,15 @@
   background-position: center;
   border-radius: 1em;
   border: 0.5em solid var(--yellow-main);
-  width: 25em;
+  width: 23em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  width: 80em;
 }
 
 /* Background colors for each type of pokemon */
@@ -144,3 +202,31 @@
 .Pokemon-fairy {
   background: radial-gradient(circle, var(--fairy), var(--grey-dark));
 }
+
+/* card shining */
+
+/* .card::before {
+  content: "";
+  position: absolute;
+  top: -80%;
+  left: -50%; 
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.6) 40%, transparent 80%);
+  transform: rotate(-45deg);
+  z-index: 1;
+  mix-blend-mode: overlay; 
+  opacity: 0.8; 
+} */
+
+/* .card::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%; 
+  width: 50%;
+  height: 30%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7), transparent);
+  z-index: 1;
+  border-radius: 100%; 
+} */

@@ -17,6 +17,8 @@ const Pokemons = () => {
     }
   }, [location]);
 
+//  console.log("los pokemons", pokemons)
+
   return (
     <>
       <div className={styles.description}>
@@ -42,12 +44,12 @@ const Pokemons = () => {
                 </Link>
                 {isScreenLessThan1040px &&
                   location.pathname === `/pokemons/pokemon/${pokemon.name}` && (
-                    <Outlet />
+                    <Outlet pokemons={pokemons} />
                   )}
               </div>
             ))}
         </div>
-        {!isScreenLessThan1040px && <Outlet />}
+        {!isScreenLessThan1040px && <Outlet pokemons={pokemons} />}
       </div>
     </>
   );

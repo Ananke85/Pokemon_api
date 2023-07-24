@@ -18,6 +18,7 @@ import {
   POKEPAGE,
 } from "./route-paths";
 import PokemonDetails from "./components/PokemonsInfo/Pokemons/PokemonsDetails/PokemonDetails";
+import { PokemonProvider } from "./context/PokemonContext";
 
 function App() {
   const queryClient = new QueryClient();
@@ -25,20 +26,22 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <NavBar />
-        <Routes>
-          <Route path={HOME} element={<Home />} />
-          <Route path={ABOUT_US} element={<About />} />
-          <Route path={BLOG} element={<Blog />} />
-          <Route path={POKEPAGE} element={<PokePage />}>
-            <Route path="" element={<Pokemons />} />
-            <Route path={POKEMONS} element={<Pokemons />}>
-              <Route path={POKEMON_DETAILS} element={<PokemonDetails />} />
+        <PokemonProvider>
+          <NavBar />
+          <Routes>
+            <Route path={HOME} element={<Home />} />
+            <Route path={ABOUT_US} element={<About />} />
+            <Route path={BLOG} element={<Blog />} />
+            <Route path={POKEPAGE} element={<PokePage />}>
+              <Route path="" element={<Pokemons />} />
+              <Route path={POKEMONS} element={<Pokemons />}>
+                <Route path={POKEMON_DETAILS} element={<PokemonDetails />} />
+              </Route>
+              <Route path={BERRIES} element={<Berries />} />
+              <Route path="pokemon/:berryName" element={<PokemonDetails />} />
             </Route>
-            <Route path={BERRIES} element={<Berries />} />
-            <Route path="pokemon/:berryName" element={<PokemonDetails />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </PokemonProvider>
       </QueryClientProvider>
     </>
   );
