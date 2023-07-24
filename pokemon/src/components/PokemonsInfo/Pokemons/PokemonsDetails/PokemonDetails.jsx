@@ -3,6 +3,8 @@ import styles from "./pokemonDetails.module.css";
 import {
   getPokemonAbilities,
   getPokemonDetails,
+  getPokemonEvolution,
+  getPokemonSpecies,
 } from "../../../../../utils/apiPokemons";
 import { useParams } from "react-router-dom";
 import normalIcon from "../../../../assets/type_normal.png";
@@ -24,13 +26,73 @@ import darkIcon from "../../../../assets/type_dark.png";
 import steelIcon from "../../../../assets/type_steel.png";
 import fairyIcon from "../../../../assets/type_fairy.png";
 import backCard from "../../../../assets/back_card.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PokemonContext } from "../../../../context/PokemonContext";
 
 const PokemonDetails = () => {
   const { name } = useParams();
   const { data } = useQuery(["details", name], () => getPokemonDetails(name));
+  const { data: species } = useQuery(["species", name], () => getPokemonSpecies(name));
   const { currentIndex, handleNextCard, handlePreviousCard } = useContext(PokemonContext);
+
+
+  // console.log("las species", species)
+  // console.log("la data", data)
+
+
+  // Para extraer el id y pasarlo a la api
+  const url = species && species.evolution_chain.url
+  const regex = /\/(\d+)\/$/;
+  const match = species && url.match(regex);
+  const id = match ? match[1] : null;
+  // console.log("el numero", id); 
+
+  const { data: chain } = useQuery(["evolution", id], () => getPokemonEvolution(id));
+  // console.log("la chain", chain)
+
+  //Para obtener los nombres de los Pokémons evolucionados
+
+  const [firstEvoImg, setFirstEvoImg] = useState("")
+  const [secondEvoImg, setSecondEvoImg] = useState("")
+
+  const firstEvolution = chain && chain.chain.evolves_to[0].species.name
+  console.log("primera evo", firstEvolution)
+
+  const secondEvolution = chain && chain.chain.evolves_to[0].evolves_to[0].species.name
+  console.log("la segunda evo", secondEvolution)
+
+
+  const getFirstEvoImg = async () => {
+    try {
+      const data = await getPokemonDetails(firstEvolution);
+      const img = data?.sprites?.other["official-artwork"].front_default;
+      setFirstEvoImg(img);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (firstEvolution) {
+      getFirstEvoImg(firstEvolution);
+    }
+  });
+
+  const getSecondEvoImg = async () => {
+    try {
+      const data = await getPokemonDetails(secondEvolution);
+      const img = data?.sprites?.other["official-artwork"].front_default;
+      setSecondEvoImg(img);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (secondEvolution) {
+      getSecondEvoImg(secondEvolution);
+    }
+  });
+
+
 
   const primaryAbility = data && data.abilities[0]?.ability.name;
   const hiddenAbility = data && data.abilities[1]?.ability.name;
@@ -155,7 +217,16 @@ const PokemonDetails = () => {
 
             )}
           </div>
+          <div>
+            <h2>{firstEvolution}</h2>
+            <img src={firstEvoImg}></img>
+          </div>
+          <div>
+            <h2>{secondEvolution}</h2>
+            <img src={secondEvoImg}></img>
+          </div>
         </div>
+        
       )}
     </>
   );

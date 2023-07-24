@@ -9,15 +9,6 @@ export const getAllPokemons = () => {
     });
 };
 
-// export const getPokemonDetails = () => {
-//   return api
-//     .get("/pokemon/1/")
-//     .then((res) => res.data)
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
-
 export const getPokemonDetails = (name) => {
   return api
     .get(`/pokemon/${name}/`)
@@ -30,6 +21,24 @@ export const getPokemonDetails = (name) => {
 export const getPokemonAbilities = (ability) => {
   return api
     .get(`/ability/${ability}/`)
+    .then((res) => res.data)
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const getPokemonSpecies = (name) => {
+  return api
+    .get(`/pokemon-species/${name}/`)
+    .then((res) => res.data)
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const getPokemonEvolution = (id) => {
+  return api
+    .get(`/evolution-chain/${id}/`)
     .then((res) => res.data)
     .catch((error) => {
       console.log(error);
