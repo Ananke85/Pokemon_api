@@ -1,22 +1,33 @@
-import { useQuery } from "react-query";
 import styles from "../pokePage.module.css";
 import { getAllPokemons } from "../../../../utils/apiPokemons";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Pokemons = () => {
-
-  const { data: pokemons } = useQuery(["pokemons"], getAllPokemons);
-  const location = useLocation();
-
+  const limit = 14;
+  const [offset, setOffset] = useState(0);
+  const [pokeList, setPokeList] = useState([]);
   const isScreenLessThan1040px = window.innerWidth < 1040;
-  // Scroll to the top of the opened details section when the location changes
+
   useEffect(() => {
-    const openedDetail = document.getElementById("opened-detail");
-    if (openedDetail) {
-      openedDetail.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [location]);
+    getAllPokemons(offset, limit)
+      .then((data) => setPokeList(data.results))
+      .catch((error) => console.log(error));
+  }, [offset, limit]);
+
+  const loadMorePokemons = () => {
+    setOffset((prevOffset) => prevOffset + limit);
+  };
+  const loadLessPokemons = () => {
+    setOffset((prevOffset) => prevOffset - limit);
+  };
+
+  useEffect(() => {
+    loadMorePokemons();
+  }, []);
+  useEffect(() => {
+    loadLessPokemons();
+  }, []);
 
   return (
     <>
@@ -32,9 +43,9 @@ const Pokemons = () => {
 
       <div className={styles.pageOutlet}>
         <div className={styles.list}>
-          {pokemons &&
-            pokemons.results.map((pokemon) => (
-              <div key={pokemon.name} className={styles.item}>
+          {pokeList &&
+            pokeList.map((pokemon, id) => (
+              <div key={id} className={styles.item}>
                 <Link
                   to={`/pokemons/pokemon/${pokemon.name}`}
                   className={styles.element}
@@ -47,8 +58,12 @@ const Pokemons = () => {
                   )}
               </div>
             ))}
-          {/* <button onClick={loadMorePokes}>MORE</button> */}
-          <button >MORE</button>
+          <div className={styles.loadingButtons}>
+            {pokeList && offset > 0 && (
+              <button onClick={loadLessPokemons}>LESS</button>
+            )}
+            <button onClick={loadMorePokemons}>MORE</button>
+          </div>
         </div>
         {!isScreenLessThan1040px && <Outlet />}
       </div>

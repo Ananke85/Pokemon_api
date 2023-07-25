@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   background-color: var(--blue-dark);
-  padding: 0.5em;
+  padding: 0.2em;
   border-bottom: solid var(--blue-light) 1em;
   position: fixed;
   top: 0;

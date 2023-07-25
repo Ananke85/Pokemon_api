@@ -20,7 +20,7 @@
 
 .element {
   background-color: var(--grey);
-  width: 12em;
+  width: 75%;
   font-size: 1.3em;
   text-decoration: none;
   color: var(--blue-dark);
@@ -41,6 +41,15 @@
   background-color: var(--yellow-main);
   color: white;
   font-weight: bold;
+}
+
+.loadingButtons {
+  width: 83%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 2em;
 }
 
 /* Media query for responsiveness */

@@ -9,12 +9,23 @@ import { api } from "./api";
 //     });
 // };
 
-export const getAllPokemons = () => {
+export const getAllPokemons = (offset, limit) => {
   return api
-    .get("/pokemon/?limit=15")
+    .get(`/pokemon/?offset=${offset}&limit=${limit}`)
     .then((res) => res.data)
     .catch((error) => {
       console.log(error);
+    });
+};
+
+export const getWholePokemons = () => {
+  console.log("paso por el get")
+  return api
+    .get("/pokemon")
+    .then((res) => res.data)
+    .catch((error) => {
+      console.log(error);
+      throw error;
     });
 };
 
