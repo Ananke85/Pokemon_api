@@ -15,13 +15,13 @@ const NavBar = () => {
           </Link>
 
           <div className={styles.searchBar}>
-            <h6 className={styles.search}>Encuentra tu Pokémon</h6>
-            <button>BUSCAR</button>
+            <h6 className={styles.search}>Find your Pokémon</h6>
+            <button>SEARCH</button>
           </div>
 
           <div className={styles.links}>
             <Link to={POKEPAGE}>POKÉMONS</Link>
-            <Link to={ABOUT_US}>ABOUT US</Link>
+            <Link to={ABOUT_US}>ABOUT</Link>
             <Link to={BLOG}>BLOG</Link>
           </div>
         </div>

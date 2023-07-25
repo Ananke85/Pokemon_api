@@ -1,8 +1,17 @@
 import { api } from "./api";
 
+// export const getAllPokemons = () => {
+//   return api
+//     .get("/pokemon/?limit=15&offset=15")
+//     .then((res) => res.data)
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
 export const getAllPokemons = () => {
   return api
-    .get("/pokemon/?limit=15&offset=0")
+    .get("/pokemon/?limit=15")
     .then((res) => res.data)
     .catch((error) => {
       console.log(error);

@@ -11,6 +11,7 @@ export const PokemonProvider = ({ children }) => {
   const { name } = useParams();
   const navigate = useNavigate();
 
+  const index = data && data.results
   const amount = data && data.results.length;
   const pokemonNames = data && data.results.map((pokemon) => pokemon.name);
 
@@ -54,6 +55,7 @@ export const PokemonProvider = ({ children }) => {
         handleNextCard,
         handlePreviousCard,
         pokemonNames,
+        index,
       }}
     >
       {children}

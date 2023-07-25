@@ -153,6 +153,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2em;
   flex-wrap: wrap;
 }
@@ -207,7 +208,7 @@
   margin-top: auto;
 }
 
-.descTitle{
+.descTitle {
   display: flex;
   gap: 0.8em;
   height: 5em;
@@ -218,13 +219,54 @@
 .description h5 {
   text-transform: none;
   text-align: justify;
+}
+/* .textColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+} */
+
+.topEvolution {
+  color: var(--red);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2em;
+ 
+}
+
+.topEvolution img {
+  position: relative;
+  top: 3em;
+  width: 10em;
+}
+.topEvolution h1 {
+  font-size: 5em;
+  transform: scaleY(2);
+
+}
+
+.statsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.stats {
+  background-color: var(--blue-medium);
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  width: 7em;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: center;
   
 }
 
 /* Background colors for each type of pokemon */
 
 .Pokemon-normal {
-  background: radial-gradient(circle var(--normal), var(--grey-dark));
+  background: radial-gradient(circle, var(--normal), var(--grey-dark));
 }
 .Pokemon-fire {
   background: radial-gradient(circle, var(--fire), var(--grey-dark));

@@ -6,7 +6,7 @@ import {
   getPokemonEvolution,
   getPokemonSpecies,
 } from "../../../../../utils/apiPokemons";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import normalIcon from "../../../../assets/type_normal.png";
 import fireIcon from "../../../../assets/type_fire.png";
 import waterIcon from "../../../../assets/type_water.png";
@@ -26,6 +26,8 @@ import darkIcon from "../../../../assets/type_dark.png";
 import steelIcon from "../../../../assets/type_steel.png";
 import fairyIcon from "../../../../assets/type_fairy.png";
 import backCard from "../../../../assets/back_card.png";
+import pikachu from "../../../../assets/pikachu.png";
+
 import { useContext, useEffect, useState } from "react";
 import { PokemonContext } from "../../../../context/PokemonContext";
 
@@ -35,17 +37,13 @@ const PokemonDetails = () => {
   const { data: species } = useQuery(["species", name], () =>
     getPokemonSpecies(name)
   );
-  const { currentIndex, handleNextCard, handlePreviousCard } =
+
+  const { index, handleNextCard, handlePreviousCard } =
     useContext(PokemonContext);
 
-  // console.log("las species", species);
-  // console.log("la data", data)
-
-  // const evolutesFrom = species && species.evolves_from_species.name;
-  // console.log("evoluciona de:", evolutesFrom);
-
   const description = species && species.flavor_text_entries;
-  console.log("la descripcion", description);
+
+  // console.log("la descripcion", description);
   const remove = (text) => {
     return text.replace(/[^\x20-\x7E]/g, " ");
   };
@@ -53,7 +51,7 @@ const PokemonDetails = () => {
   // Para extraer el id y pasarlo a la api
   const url = species && species.evolution_chain.url;
   const regex = /\/(\d+)\/$/;
-  const match = species && url.match(regex);
+  const match = species && species && url.match(regex);
   const id = match ? match[1] : null;
   // console.log("el numero", id);
 
@@ -62,83 +60,86 @@ const PokemonDetails = () => {
   );
   // console.log("la chain", chain)
 
-  //Para obtener los nombres de los Pokémons evolucionados
-  // const pokemonName = data && data.species.name;
+  // Pokemon Evolution
+  const pokemonName = data && data?.species?.name;
 
-  // console.log("el nombre del pokemon", pokemonName);
+  const firstPokemon = chain && chain?.chain?.species?.name;
+  // console.log("el primer pokemon", firstPokemon)
+
+  const secondPokemon = chain && chain?.chain?.evolves_to[0]?.species?.name;
+  // console.log("primera evo", secondPokemon);
+
+  const thirdPokemon =
+    chain && chain?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name;
+  // console.log("la segunda evo", thirdPokemon);
+
+  const evolutionHandler = (initialPokemonEvolution, pokemonName) => {
+    const [firstPokemon, secondPokemon, thirdPokemon] = initialPokemonEvolution;
+
+    if (thirdPokemon === pokemonName) {
+      return [];
+    } else if (secondPokemon === pokemonName) {
+      return [thirdPokemon];
+    } else if (firstPokemon === pokemonName) {
+      return [secondPokemon, thirdPokemon];
+    } else {
+      return initialPokemonEvolution;
+    }
+  };
+
+  const pokemonEvolution = evolutionHandler(
+    [firstPokemon, secondPokemon, thirdPokemon],
+    pokemonName
+  );
+
+  // console.log("la evolucion resultante", pokemonEvolution);
+
   const [firstEvoImg, setFirstEvoImg] = useState("");
   const [secondEvoImg, setSecondEvoImg] = useState("");
+  const [, setImagesLoaded] = useState(false);
 
-  const firstEvolution = chain && chain.chain.evolves_to[0].species?.name;
-  // console.log("primera evo", firstEvolution);
-
-  const secondEvolution =
-    chain && chain.chain.evolves_to[0].evolves_to[0].species?.name;
-  // console.log("la segunda evo", secondEvolution);
-
-  const getFirstEvoImg = async () => {
-    try {
-      const data = await getPokemonDetails(firstEvolution);
-      const img = data?.sprites?.other["official-artwork"].front_default;
-      setFirstEvoImg(img);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // Fetch and set the first evolution image URL
   useEffect(() => {
-    if (firstEvolution) {
-      getFirstEvoImg(firstEvolution);
-    }
-  });
+    const getFirstEvoImg = async () => {
+      try {
+        if (secondPokemon) {
+          const data = await getPokemonDetails(secondPokemon);
+          const img = data?.sprites?.other["official-artwork"].front_default;
+          setFirstEvoImg(img);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  const getSecondEvoImg = async () => {
-    try {
-      const data = await getPokemonDetails(secondEvolution);
-      const img = data?.sprites?.other["official-artwork"].front_default;
-      setSecondEvoImg(img);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    getFirstEvoImg();
+  }, [secondPokemon]);
+
+  // Fetch and set the second evolution image URL
   useEffect(() => {
-    if (secondEvolution) {
-      getSecondEvoImg(secondEvolution);
+    const getSecondEvoImg = async () => {
+      try {
+        if (thirdPokemon) {
+          const data = await getPokemonDetails(thirdPokemon);
+          const img = data?.sprites?.other["official-artwork"].front_default;
+          setSecondEvoImg(img);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getSecondEvoImg();
+  }, [thirdPokemon]);
+
+  // Check if both image URLs are ready
+  useEffect(() => {
+    if (firstEvoImg && secondEvoImg) {
+      setImagesLoaded(true);
     }
-  });
+  }, [firstEvoImg, secondEvoImg]);
 
-  // const isFinalEvolution = () => {
-  //   // Check if there's a second evolution and if the current Pokémon is the second evolution
-  //   if (secondEvolution && data.species.name === secondEvolution) {
-  //     return true;
-  //   }
-
-  //   // Check if there's a first evolution and if the current Pokémon is the first evolution
-  //   if (firstEvolution && data.species.name === firstEvolution) {
-  //     // Check if there's a second evolution (to prevent displaying "Final Evolution" when there's only one evolution)
-  //     return !secondEvolution;
-  //   }
-
-  //   // If none of the above conditions match, then it's not the final evolution
-  //   return false;
-  // };
-
-  // const pokemonEvolution = [pokemonName, firstEvolution, secondEvolution]
-  // console.log("la evolucion", pokemonEvolution)
-
-  // const evolution_chain = () => {
-  //   if  (pokemonName === data.species.name ) {
-  //     pokemonEvolution.splice(pokemonName)
-  //   } else if {
-  //     (pokemonName === firstEvolution || data.species.name ){
-  //       pokemonEvolution.splice(firstEvolution)
-  //     }
-  //   } else {
-
-  //   }
-
-  //   }
-  // }
-
+  // Pokemon Abilities
   const primaryAbility = data && data.abilities[0]?.ability.name;
   const hiddenAbility = data && data.abilities[1]?.ability.name;
 
@@ -151,6 +152,7 @@ const PokemonDetails = () => {
     () => getPokemonAbilities(hiddenAbility)
   );
 
+  // Pokemon type and icon
   const pokemonType = data && data.types[0]?.type.name;
 
   const pokemonIcon = {
@@ -178,14 +180,23 @@ const PokemonDetails = () => {
     return pokemonIcon[pokemonType.toLowerCase()] || "";
   };
 
+  const [randomNumber, setRandomNumber] = useState(null);
+
+  useEffect(() => {
+    const min = 10;
+    const max = 200;
+    const attack = Math.floor(Math.random() * (max - min + 1)) + min;
+    const defense = Math.floor(Math.random() * (max - min + 1)) + min;
+    const power = Math.floor(Math.random() * (max - min + 1)) + min;
+    const speed = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    setRandomNumber({ attack, defense, power, speed });
+  }, []);
+
   return (
     <>
-      {data && species && chain && (
+      {data && chain && (
         <div className={styles.outlet}>
-          {/* <div className={styles.title}>
-            <h1 className={styles.name}>{data.species.name}</h1>
-            <h1>in detail</h1>
-          </div> */}
           <div className={styles.firstRow}>
             <div className={styles.container}>
               <div
@@ -252,62 +263,116 @@ const PokemonDetails = () => {
             </div>
 
             <div className={styles.rightColumn}>
-              <div className={styles.evolution}>
-                <h2 className={styles.evolutionTitle}>Evolutes to:</h2>
-                <div className={styles.pokeEvolution}>
-                  {firstEvolution && (
-                    <div>
-                      <h3>{firstEvolution}</h3>
-                      <img
-                        src={firstEvoImg}
-                        className={`${styles.mini} ${
-                          pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
-                        }`}
-                      ></img>
-                    </div>
-                  )}
-
-                  {secondEvolution && (
-                    <div>
-                      <h3>{secondEvolution}</h3>
-                      <img
-                        src={secondEvoImg}
-                        className={`${styles.mini} ${
-                          pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
-                        }`}
-                      ></img>
-                    </div>
-                  )}
-
-                  {/* {isFinalEvolution() && <h2>Final evolution</h2>} */}
+              {pokemonEvolution.length > 0 && (
+                <div className={styles.evolution}>
+                  <h2 className={styles.evolutionTitle}>Evolutes to:</h2>
+                  <div className={styles.pokeEvolution}>
+                    {pokemonEvolution.map((pokemon, index) => (
+                      <div key={index}>
+                        <h3>{pokemon}</h3>
+                        <Link to={`/pokemons/pokemon/${pokemon}`}>
+                          {pokemon === secondPokemon && firstEvoImg && (
+                            <img
+                              src={firstEvoImg}
+                              className={`${styles.mini} ${
+                                pokemonType
+                                  ? styles[`Pokemon-${pokemonType}`]
+                                  : ""
+                              }`}
+                              alt={pokemon}
+                            />
+                          )}
+                        </Link>
+                        <Link to={`/pokemons/pokemon/${pokemon}`}>
+                          {pokemon === thirdPokemon && secondEvoImg && (
+                            <img
+                              src={secondEvoImg}
+                              className={`${styles.mini} ${
+                                pokemonType
+                                  ? styles[`Pokemon-${pokemonType}`]
+                                  : ""
+                              }`}
+                              alt={pokemon}
+                            />
+                          )}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className={styles.description}>
-                <div className={styles.descTitle}>
-                <h2>{data.species.name}</h2>
-                <h2 className={styles.inDetail}>in detail:</h2>
+              )}
+
+              {pokemonEvolution.length === 0 && (
+                <div className={styles.evolution}>
+                  <div className={styles.topEvolution}>
+                    <h1>TOP</h1>
+                    <img src={pikachu} alt="Top Evolution" />
+                    <h1>EVOLUTION</h1>
+                  </div>
                 </div>
-                <h5>
-                  {remove(description[0].flavor_text)}{" "}
-                  {remove(description[2].flavor_text)}
-                  {remove(description[3].flavor_text)} <br /><br />{" "}
-                  {remove(description[6].flavor_text)}{" "}
-                  {remove(description[8].flavor_text)} <br /><br />
-                  {remove(description[12].flavor_text)}{" "}
-                  {remove(description[71].flavor_text)}
-                </h5>
-              </div>
+              )}
+
+              {species && (
+                <div className={styles.description}>
+                  <div className={styles.descTitle}>
+                    <h2>{data.species.name}</h2>
+                    <h2 className={styles.inDetail}>in detail:</h2>
+                  </div>
+                  <h5>
+                    {remove(description[0].flavor_text)}{" "}
+                    {remove(description[2].flavor_text)}
+                    {remove(description[3].flavor_text)} <br />
+                    <br /> {remove(description[6].flavor_text)}{" "}
+                    {remove(description[8].flavor_text)}
+                    <br />
+                    {remove(description[12].flavor_text)}{" "}
+                    {remove(description[71].flavor_text)}
+                  </h5>
+                </div>
+              )}
             </div>
           </div>
 
           <div className={styles.buttons}>
-            {currentIndex !== 0 && (
+            {index[0].name !== name && (
               <button onClick={handlePreviousCard}>PREVIOUS</button>
             )}
-
-            {currentIndex < 14 && (
+            {index[14].name !== name && (
               <button onClick={handleNextCard}>NEXT</button>
             )}
+          </div>
+
+          <div className={styles.statsContainer}>
+            <h3>
+              {randomNumber && (
+                <div className={styles.stats}>
+                  <div>Attack</div> <div> {randomNumber.attack}</div>
+                </div>
+              )}
+            </h3>
+            <h3>
+              {randomNumber && (
+                <div className={styles.stats}>
+                  <div>Defense</div> <div> {randomNumber.defense}</div>
+                </div>
+              )}
+            </h3>
+            <h3>
+              {randomNumber && (
+                <div className={styles.stats}>
+                  <div>Power</div> <div> {randomNumber.power}</div>
+                </div>
+              )}
+            </h3>
+            <h3>
+              {randomNumber && (
+                <div className={styles.stats}>
+                  <div>Speed</div> <div> {randomNumber.speed}</div>
+                </div>
+              )}
+            </h3>
+
+            <div></div>
           </div>
         </div>
       )}
@@ -316,3 +381,30 @@ const PokemonDetails = () => {
 };
 
 export default PokemonDetails;
+
+// const firstEvolution = (pokemonEvolution, pokemonName) => {
+//   if (pokemonEvolution[0] === pokemonName) {
+//     return [secondPokemon, thirdPokemon]
+//   } else {
+//     return pokemonEvolution
+//   }
+// };
+
+// const secondEvolution = (pokemonEvolution, pokemonName) => {
+//   if (pokemonEvolution[1] === pokemonName) {
+//     return [thirdPokemon]
+//   } else {
+//     return pokemonEvolution
+//   }
+// };
+
+// const finalEvolution = (pokemonEvolution, pokemonName) => {
+//   if (pokemonEvolution[2] === pokemonName) {
+//     return []
+//   } else {
+//     return pokemonEvolution
+//   }
+// };
+
+// const evolutesFrom = species && species.evolves_from_species.name;
+// console.log("evoluciona de:", evolutesFrom);

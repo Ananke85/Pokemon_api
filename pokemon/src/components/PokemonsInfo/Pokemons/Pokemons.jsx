@@ -5,8 +5,9 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const Pokemons = () => {
+
   const { data: pokemons } = useQuery(["pokemons"], getAllPokemons);
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
 
   const isScreenLessThan1040px = window.innerWidth < 1040;
   // Scroll to the top of the opened details section when the location changes
@@ -16,8 +17,6 @@ const Pokemons = () => {
       openedDetail.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
-
-//  console.log("los pokemons", pokemons)
 
   return (
     <>
@@ -48,6 +47,8 @@ const Pokemons = () => {
                   )}
               </div>
             ))}
+          {/* <button onClick={loadMorePokes}>MORE</button> */}
+          <button >MORE</button>
         </div>
         {!isScreenLessThan1040px && <Outlet />}
       </div>
