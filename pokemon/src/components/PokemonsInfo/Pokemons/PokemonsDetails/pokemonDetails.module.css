@@ -169,7 +169,7 @@
 .evolution {
   display: flex;
   flex-direction: column;
-  max-height: 23em;
+  height: 21em;
   background-color: var(--grey);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
   padding: 0 2em;
@@ -179,7 +179,7 @@
   text-transform: capitalize;
 }
 .evolution .mini {
-  width: 8em;
+  width: 10.5em;
   border-radius: 8em;
   padding: 0.7em;
 }
@@ -192,7 +192,7 @@
   align-items: center;
   gap: 5em;
   position: relative;
-  top: -4em;
+  top: -7em;
   text-align: center;
 }
 
@@ -252,6 +252,7 @@
   width: 100%;
   justify-content: space-between;
 }
+
 .stats {
   background-color: var(--blue-medium);
   color: white;

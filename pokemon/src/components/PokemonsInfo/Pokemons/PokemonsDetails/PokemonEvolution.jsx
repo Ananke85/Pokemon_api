@@ -34,7 +34,7 @@ const PokemonEvolution = () => {
   const pokemonName = data && data?.species?.name;
 
   const firstPokemon = chain && chain?.chain?.species?.name;
-  console.log("el primer pokemon", firstPokemon)
+  console.log("el primer pokemon", firstPokemon);
 
   const secondPokemon = chain && chain?.chain?.evolves_to[0]?.species?.name;
   console.log("primera evo", secondPokemon);
@@ -113,50 +113,52 @@ const PokemonEvolution = () => {
   return (
     <>
       <div className={styles.rightColumn}>
-        {pokemonEvolution.length > 0 && (
-          <div className={styles.evolution}>
-            <h2 className={styles.evolutionTitle}>Evolutes to:</h2>
-            <div className={styles.pokeEvolution}>
-              {pokemonEvolution.map((pokemon, index) => (
-                <div key={index}>
-                  <h3>{pokemon}</h3>
-                  <Link to={`/pokemons/pokemon/${pokemon}`}>
-                    {pokemon === secondPokemon && firstEvoImg && (
-                      <img
-                        src={firstEvoImg}
-                        className={`${styles.mini} ${
-                          pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
-                        }`}
-                        alt={pokemon}
-                      />
-                    )}
-                  </Link>
-                  <Link to={`/pokemons/pokemon/${pokemon}`}>
-                    {pokemon === thirdPokemon && secondEvoImg && (
-                      <img
-                        src={secondEvoImg}
-                        className={`${styles.mini} ${
-                          pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
-                        }`}
-                        alt={pokemon}
-                      />
-                    )}
-                  </Link>
-                </div>
-              ))}
+        <div>
+          {pokemonEvolution.length > 0 && (
+            <div className={styles.evolution}>
+              <h2 className={styles.evolutionTitle}>Evolutes to:</h2>
+              <div className={styles.pokeEvolution}>
+                {pokemonEvolution.map((pokemon, index) => (
+                  <div key={index}>
+                    <h3>{pokemon}</h3>
+                    <Link to={`/pokemons/pokemon/${pokemon}`}>
+                      {pokemon === secondPokemon && firstEvoImg && (
+                        <img
+                          src={firstEvoImg}
+                          className={`${styles.mini} ${
+                            pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
+                          }`}
+                          alt={pokemon}
+                        />
+                      )}
+                    </Link>
+                    <Link to={`/pokemons/pokemon/${pokemon}`}>
+                      {pokemon === thirdPokemon && secondEvoImg && (
+                        <img
+                          src={secondEvoImg}
+                          className={`${styles.mini} ${
+                            pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
+                          }`}
+                          alt={pokemon}
+                        />
+                      )}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {pokemonEvolution.length === 0 && (
-          <div className={styles.evolution}>
-            <div className={styles.topEvolution}>
-              <h1>TOP</h1>
-              <img src={pikachu} alt="Top Evolution" />
-              <h1>EVOLUTION</h1>
+          {pokemonEvolution.length === 0 && (
+            <div className={styles.evolution}>
+              <div className={styles.topEvolution}>
+                <h1>TOP</h1>
+                <img src={pikachu} alt="Top Evolution" />
+                <h1>EVOLUTION</h1>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
         {species && description ? (
           <div className={styles.description}>
@@ -170,7 +172,6 @@ const PokemonEvolution = () => {
               {remove(description[3].flavor_text)} <br />
               <br /> {remove(description[6].flavor_text)}{" "}
               {remove(description[8].flavor_text)}
-              
               {remove(description[12].flavor_text)}{" "}
               {remove(description[28].flavor_text)}
             </h5>

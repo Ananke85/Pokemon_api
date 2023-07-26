@@ -1,3 +1,57 @@
 .homePage {
-  padding: 15em 5em 4em 5em;
+  padding: 15em 0 0 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("C:\Users\anank\Documents\Ananke85\Pokemon_api\pokemon\src\assets\pokemon_wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: center;
+  overflow: hidden;
+  position: fixed;
+  top: -10em;
+  left: 0;
+  
+}
+@keyframes fadeInBackground {
+  0% {
+    background-color: rgba(179, 179, 179, 0); /* Start with 0% opacity */
+  }
+  100% {
+    background-color: rgba(179, 179, 179, 0.4); /* Reach the desired opacity (e.g., 0.3) */
+    backdrop-filter: blur(2px);
+  }
+}
+
+.homePage::before {
+  content: "";
+  background-color: rgba(182, 182, 182, 0); /* Set initial opacity to 0 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeInBackground 3s ease 2s forwards; /* Run the animation with a delay of 2 seconds */
+  /* The "forwards" fill mode keeps the final state of the animation (opacity: 0.3) */
+}
+
+.content {
+  padding: 10em 10em 0 10em;
+}
+
+.content img {
+  position: fixed;
+  bottom: 0em;
+  height: 70em;
+  left: 50vw;
+  opacity: 0;
+  transform: translateX(-50%);
+  /* Start the image fade-in after 1 second */
+  transition: opacity 3s ease 1s;
+}
+
+/* When the ".animate" class is applied to ".homePage",
+   make the image visible by changing its opacity to 1 */
+.homePage.animate .content img.show {
+  opacity: 1;
 }

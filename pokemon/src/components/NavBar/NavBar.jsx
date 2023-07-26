@@ -5,8 +5,6 @@ import { ABOUT_US, BLOG, HOME, POKEPAGE } from "../../route-paths";
 
 const NavBar = () => {
   return (
-
-    
     <>
       <div className={styles.navBar}>
         <div className={styles.content}>

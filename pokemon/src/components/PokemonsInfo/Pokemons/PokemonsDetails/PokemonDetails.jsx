@@ -148,13 +148,15 @@ const PokemonDetails = () => {
             <div>
               {data && <PokemonEvolution />}
               {data && <PokemonStats />}
+
             </div>
+
           </div>
           <div className={styles.buttons}>
             {index && index[0]?.name !== name && (
               <button onClick={handlePreviousCard}>PREVIOUS</button>
             )}
-            {index && index[14]?.name !== name && (
+            {index && index[13]?.name !== name && (
               <button onClick={handleNextCard}>NEXT</button>
             )}
           </div>

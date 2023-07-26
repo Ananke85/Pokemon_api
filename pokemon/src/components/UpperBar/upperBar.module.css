@@ -31,7 +31,7 @@
 /* Media queries for responsiveness */
 @media screen and (min-width: 75em) and (max-width: 95em) {
   .upperBar {
-    margin-top: 2%; 
+    margin-top: 0%; 
   }
 }
 
