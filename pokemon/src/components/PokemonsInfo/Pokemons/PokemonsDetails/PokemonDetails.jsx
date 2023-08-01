@@ -84,7 +84,10 @@ const PokemonDetails = () => {
             <div className={styles.buttonWrrapper}>
               {index && index[0]?.name !== name && (
                 // <button onClick={handlePreviousCard}><span className="icon-point-left"></span></button>
-                <span onClick={handlePreviousCard} className="icon-point-left"></span>
+                <span
+                  onClick={handlePreviousCard}
+                  className="icon-point-left"
+                ></span>
               )}
             </div>
 
@@ -159,8 +162,10 @@ const PokemonDetails = () => {
             <div className={styles.buttonWrrapper}>
               {index && index[13]?.name !== name && (
                 // <button onClick={handleNextCard}><span className="icon-point-right"></span></button>
-                <span onClick={handleNextCard} className="icon-point-right"></span>
-
+                <span
+                  onClick={handleNextCard}
+                  className="icon-point-right"
+                ></span>
               )}
             </div>
           </div>
