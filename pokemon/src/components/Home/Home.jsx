@@ -1,4 +1,4 @@
-import AudioPlayer from "../Music/Music";
+// import AudioPlayer from "../Music/Music";
 import styles from "./home.module.css";
 import ash from "../../assets/ash_ketchum.png";
 import { useEffect, useState } from "react";
@@ -21,7 +21,7 @@ const Home = () => {
         }`}
       >
         <div className={styles.content}>
-          <AudioPlayer />
+          {/* <AudioPlayer /> */}
 
           <img
             src={ash}

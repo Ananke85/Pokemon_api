@@ -17,8 +17,8 @@ const AudioPlayer = () => {
 
   return (
     <div className={styles.themeSong}>
-      <audio ref={audioRef} src={themeSong} />
-      <button onClick={toggleAudio} style={{backgroundColor: !isPlaying ? undefined : "var(--blue-dark)"}}>
+      <audio ref={audioRef} src={themeSong} loop/>
+      <button onClick={toggleAudio} style={{backgroundColor: !isPlaying ? undefined : "var(--red)"}}>
         {isPlaying ? (
           <>
             PAUSE <span className="icon-pause2"></span>

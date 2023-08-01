@@ -34,14 +34,14 @@ const PokemonEvolution = () => {
   const pokemonName = data && data?.species?.name;
 
   const firstPokemon = chain && chain?.chain?.species?.name;
-  console.log("el primer pokemon", firstPokemon);
+  // console.log("el primer pokemon", firstPokemon);
 
   const secondPokemon = chain && chain?.chain?.evolves_to[0]?.species?.name;
-  console.log("primera evo", secondPokemon);
+  // console.log("primera evo", secondPokemon);
 
   const thirdPokemon =
     chain && chain?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name;
-  console.log("la segunda evo", thirdPokemon);
+  // console.log("la segunda evo", thirdPokemon);
 
   const evolutionHandler = (initialPokemonEvolution, pokemonName) => {
     const [firstPokemon, secondPokemon, thirdPokemon] = initialPokemonEvolution;

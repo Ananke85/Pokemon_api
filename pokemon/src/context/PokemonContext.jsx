@@ -15,7 +15,10 @@ export const PokemonProvider = ({ children }) => {
   const amount = data && data.results.length;
   const pokemonNames = data && data.results.map((pokemon) => pokemon.name);
 
-  useQuery(["details", name], () => getPokemonDetails(name));
+  const {data: details} = useQuery(["details", name], () => getPokemonDetails(name));
+
+  const pokemonType = details && details.types[0]?.type.name;
+  // console.log("el tipo", pokemonType)
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -56,6 +59,7 @@ export const PokemonProvider = ({ children }) => {
         handlePreviousCard,
         pokemonNames,
         index,
+        pokemonType
       }}
     >
       {children}

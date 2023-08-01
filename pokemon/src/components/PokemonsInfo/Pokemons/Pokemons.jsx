@@ -2,9 +2,11 @@ import styles from "../pokePage.module.css";
 import { getAllPokemons } from "../../../../utils/apiPokemons";
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 const Pokemons = () => {
-  const limit = 14;
+  const { data } = useQuery(["pokes"], getAllPokemons)
+  const limit = 13;
   const [offset, setOffset] = useState(0);
   const [pokeList, setPokeList] = useState([]);
   const isScreenLessThan1040px = window.innerWidth < 1040;
@@ -28,6 +30,7 @@ const Pokemons = () => {
   useEffect(() => {
     loadLessPokemons();
   }, []);
+
 
   return (
     <>
@@ -62,7 +65,9 @@ const Pokemons = () => {
             {pokeList && offset > 0 && (
               <button onClick={loadLessPokemons}>LESS</button>
             )}
-            <button onClick={loadMorePokemons}>MORE</button>
+            {pokeList && data?.next != null && (
+              <button onClick={loadMorePokemons}>MORE</button>
+            )}
           </div>
         </div>
         {!isScreenLessThan1040px && <Outlet />}

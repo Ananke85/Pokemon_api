@@ -72,6 +72,7 @@ h3 {
 }
 h4 {
   font-size: 1.4em;
+  font-weight: 400;
 }
 h5 {
   font-size: 1.3em;
@@ -79,9 +80,13 @@ h5 {
 }
 h6 {
   font-size: 1.2em;
+  font-weight: 400;
+
 }
 p {
   font-size: 1.1em;
+  font-weight: 400;
+
 }
 
 button {

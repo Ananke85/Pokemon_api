@@ -1,7 +1,8 @@
 import styles from "./navBar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/pokemon_logo.png";
-import { ABOUT_US, BLOG, HOME, POKEPAGE } from "../../route-paths";
+import { ABOUT, BLOG, HOME, POKEPAGE } from "../../route-paths";
+import AudioPlayer from "../Music/Music";
 
 const NavBar = () => {
   return (
@@ -19,9 +20,10 @@ const NavBar = () => {
 
           <div className={styles.links}>
             <Link to={POKEPAGE}>POKÉMONS</Link>
-            <Link to={ABOUT_US}>ABOUT</Link>
+            <Link to={ABOUT}>ABOUT</Link>
             <Link to={BLOG}>BLOG</Link>
           </div>
+          <AudioPlayer />
         </div>
       </div>
     </>

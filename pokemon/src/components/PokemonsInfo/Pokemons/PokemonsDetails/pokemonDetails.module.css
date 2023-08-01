@@ -6,20 +6,20 @@
 .outlet {
   margin-top: 1em;
   margin-bottom: 4em;
-  display: flex;
   /* flex-direction: column; */
   flex-wrap: wrap;
   gap: 2em;
 }
 
 .firstRow {
-  max-width: 80vw;
+  /* max-width: 80vw; */
+  width: 100%;
   height: 56em;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 0.25fr 1fr 4fr 0.5fr;
   justify-content: space-between;
   align-items: center;
-  gap: 7em;
+  gap: 4em;
   flex-wrap: wrap;
 }
 
@@ -34,7 +34,7 @@
   padding: 0 2em 1em 2em;
   border: 1em solid var(--yellow-main);
   border-radius: 1em;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   color: white;
   display: flex;
   flex-direction: column;
@@ -59,7 +59,7 @@
   object-fit: cover;
   width: 100%;
   height: 53.2em;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   border-radius: 1em;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -150,14 +150,31 @@
   width: 23em;
 }
 
-.buttons {
+/* .buttons {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2em;
   flex-wrap: wrap;
+} */
+
+.buttonWrrapper {
+  flex: 1;
 }
+
+.buttonWrrapper button {
+  width: 7em;
+}
+
+.buttonWrrapper span {
+  font-size: 5em;
+}
+.buttonWrrapper span:hover {
+  color: var(--yellow-main);
+  cursor: pointer;
+}
+
 .rightColumn {
   display: flex;
   flex-direction: column;
@@ -171,7 +188,7 @@
   flex-direction: column;
   height: 21em;
   background-color: var(--grey);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   padding: 0 2em;
   border: none;
   /* border: 1em solid var(--yellow-main); */
@@ -200,7 +217,7 @@
   background-color: var(--grey);
   /* background-color: var(--blue-medium);
   color: white; */
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   padding: 0 2em;
   border: none;
   /* border: 1em solid var(--yellow-main); */
@@ -233,7 +250,6 @@
   align-items: baseline;
   justify-content: center;
   gap: 2em;
- 
 }
 
 .topEvolution img {
@@ -244,7 +260,6 @@
 .topEvolution h1 {
   font-size: 5em;
   transform: scaleY(2);
-
 }
 
 .statsContainer {
@@ -262,7 +277,106 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   justify-content: center;
-  
+}
+
+/* CSS for Berries Component */
+
+.berryContainer {
+  height: fit-content;
+  width: 34em;
+  background-color: var(--blue-light);
+  padding: 0 2em 1em 2em;
+  border-radius: 1em;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  text-transform: capitalize;
+  color: white;
+  transition: transform 0.3 ease;
+  border: 0.4em solid var(--yellow-main);
+}
+.berryContainer:hover {
+  transform: translateY(-1em);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+  margin-bottom: -0.5em;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.berryList {
+  font-size: 1.4em;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.5em;
+  background-color: var(--grey);
+  border-radius: 0.5em;
+  color: var(--blue-dark);
+}
+
+.nonCapi {
+  text-transform: none;
+}
+
+.titleDetails {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 1em;
+  align-items: center;
+  justify-content: space-between;
+}
+.flavorsGrid {
+  font-size: 1.4em;
+}
+.flavorsGrid h4 {
+  font-weight: bold;
+}
+.flavors {
+  display: grid;
+  width: 19em;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  top: -1em;
+  left: 5em;
+  background-color: var(--grey);
+  border-radius: 0.5em;
+  color: var(--blue-dark);
+  margin-bottom: 0.5em;
+}
+
+.flavors .content {
+  padding: 0 0 0 1em;
+}
+.flavors h4 {
+  padding: 0 0 0 0.5em;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown button {
+  width: fit-content;
+  background-color: transparent;
+  color: var(--yellow-main);
+
+}
+.dropdown button:hover {
+  color: var(--blue-light);
+}
+.arrow {
+  font-size: 1.8em;
+}
+
+.active {
+  transform: rotate(180deg);
+  font-size: 1.8em;
 }
 
 /* Background colors for each type of pokemon */

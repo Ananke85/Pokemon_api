@@ -19,7 +19,6 @@ export const getAllPokemons = (offset, limit) => {
 };
 
 export const getWholePokemons = () => {
-  console.log("paso por el get")
   return api
     .get("/pokemon")
     .then((res) => res.data)
@@ -66,11 +65,3 @@ export const getPokemonEvolution = (id) => {
 };
 
 
-export const getAllBerries = () => {
-  return api
-    .get("/berry/?limit=15&offset=0")
-    .then((res) => res.data)
-    .catch((error) => {
-      console.log(error);
-    });
-};

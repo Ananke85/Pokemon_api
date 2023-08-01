@@ -50,7 +50,7 @@
 }
 
 .links a:hover {
-  background-color: var(--blue-light);
+  background-color: var(--yellow-main);
 }
 
 .search {

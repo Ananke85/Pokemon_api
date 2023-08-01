@@ -81,6 +81,13 @@ const PokemonDetails = () => {
       {data && (
         <div className={styles.outlet}>
           <div className={styles.firstRow}>
+            <div className={styles.buttonWrrapper}>
+              {index && index[0]?.name !== name && (
+                // <button onClick={handlePreviousCard}><span className="icon-point-left"></span></button>
+                <span onClick={handlePreviousCard} className="icon-point-left"></span>
+              )}
+            </div>
+
             <div className={styles.container}>
               <div
                 className={`${styles.card} ${
@@ -148,18 +155,24 @@ const PokemonDetails = () => {
             <div>
               {data && <PokemonEvolution />}
               {data && <PokemonStats />}
-
             </div>
+            <div className={styles.buttonWrrapper}>
+              {index && index[13]?.name !== name && (
+                // <button onClick={handleNextCard}><span className="icon-point-right"></span></button>
+                <span onClick={handleNextCard} className="icon-point-right"></span>
 
+              )}
+            </div>
           </div>
-          <div className={styles.buttons}>
+
+          {/* <div className={styles.buttons}>
             {index && index[0]?.name !== name && (
               <button onClick={handlePreviousCard}>PREVIOUS</button>
             )}
             {index && index[13]?.name !== name && (
               <button onClick={handleNextCard}>NEXT</button>
             )}
-          </div>
+          </div> */}
         </div>
       )}
     </>

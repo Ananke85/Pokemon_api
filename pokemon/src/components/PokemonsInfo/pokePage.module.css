@@ -5,14 +5,30 @@
 .pageOutlet {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  gap: 3em;
-  padding-right: 1em;
-  overflow-y: auto;
+  /* gap: 3em; */
+  /* padding-right: 1em; */
+}
+
+.pageContainer {
+  margin-bottom: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.6em;
+  flex-wrap: wrap;
+  margin-bottom: 3em;
 }
 
 .list {
   width: 100%;
-  max-width: 20vw;
+  /* max-width: 20vw; */
   /* padding: 1em 0 2em 0; */
 }
 
@@ -52,6 +68,11 @@
   align-items: center;
   position: relative;
   top: 2em;
+}
+
+.loadingButtonsBerries {
+  display: flex;
+  gap: 3em;
 }
 
 /* Media query for responsiveness */
