@@ -14,13 +14,19 @@ import {
   BLOG,
   HOME,
   LOCATIONS,
+  LOCATIONS_DETAILS,
   POKEMONS,
   POKEMON_DETAILS,
   POKEPAGE,
+  REGIONS,
+  REGIONS_DETAILS,
 } from "./route-paths";
 import PokemonDetails from "./components/PokemonsInfo/Pokemons/PokemonsDetails/PokemonDetails";
 import { PokemonProvider } from "./context/PokemonContext";
 import Locations from "./components/PokemonsInfo/Locations/Locations";
+import LocationsDetails from "./components/PokemonsInfo/Locations/LocationsDetails";
+import Regions from "./components/PokemonsInfo/Regions/Regions";
+import RegionDetails from "./components/PokemonsInfo/Regions/RegionsDetails";
 
 function App() {
   const queryClient = new QueryClient();
@@ -42,7 +48,13 @@ function App() {
               <Route path={BERRIES} element={<Berries />}>
                 {/* <Route path={BERRIES_DETAILS} element={<BerriesDetails />} /> */}
               </Route>
-              <Route path={LOCATIONS} element={<Locations />}></Route>
+              <Route path={REGIONS} element={<Regions />}>
+                <Route path={REGIONS_DETAILS} element={<RegionDetails />} />
+              </Route>
+              <Route path={LOCATIONS} element={<Locations />}>
+                <Route path={LOCATIONS_DETAILS} element={<LocationsDetails />} />
+              </Route>
+
             </Route>
           </Routes>
         </PokemonProvider>

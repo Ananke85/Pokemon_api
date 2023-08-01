@@ -48,7 +48,7 @@ const Pokemons = () => {
         <div className={styles.list}>
           {pokeList &&
             pokeList.map((pokemon, id) => (
-              <div key={id} className={styles.item}>
+              <div key={id}>
                 <Link
                   to={`/pokemons/pokemon/${pokemon.name}`}
                   className={styles.element}

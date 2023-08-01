@@ -6,8 +6,14 @@ export const BLOG = "/blog"
 
 export const POKEMONS = "/pokemons/pokemon"
 export const BERRIES = "/pokemons/berries"
-export const LOCATIONS = "pokemons/locations"
+export const LOCATIONS = "/pokemons/locations"
+export const REGIONS = "/pokemons/regions"
+
 
 export const POKEMON_DETAILS = "/pokemons/pokemon/:name"
 export const BERRIES_DETAILS = "/pokemons/berries/:name"
+export const LOCATIONS_DETAILS = "/pokemons/locations/:name"
+export const REGIONS_DETAILS = "/pokemons/regions/:name"
+
+
 
