@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getRegionByName } from "../../../../utils/apiLocations";
 import styles from "./regions.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LocationsDetails from "../Locations/LocationsDetails";
 import alola from "../../../assets/regions/alola.jpg";
 import galar from "../../../assets/regions/galar.jpg";
@@ -20,14 +20,22 @@ const RegionDetails = () => {
     getRegionByName(name)
   );
   console.log("las regiones", regions);
-  const limit = 20;
-  const [showLocations, setShowLocations] = useState(20);
+  const limit = 12;
+  const [offset, setOffset] = useState(0)
+  const [, setShowLocations] = useState([]);
+  
+  useEffect(() => {
+    if(regions) {
+      setShowLocations((prevShowLocations) => [...prevShowLocations, ...regions.locations])
+    }
+  }, [regions, offset])
+  
   const handleShowMore = () => {
-    setShowLocations(showLocations + limit);
+    setOffset((prevOffset) => prevOffset + limit);
   };
 
   const handleShowLess = () => {
-    setShowLocations(showLocations - limit);
+    setOffset((prevOffset) => Math.max(prevOffset - limit, 0));
   };
 
   const regionImages = {
@@ -71,54 +79,60 @@ const RegionDetails = () => {
 
   return (
     <>
-    {regions && (
-    <div className={styles.regionOutlet}>
-      <div className={styles.regionTitle}>
-        <h2>{regions.name} was introduced in</h2>
-        {regions.main_generation && <h2>{regions.main_generation.name}</h2>}
-      </div>
-
-      <div className={styles.regionDescription}>
-        {regionImage && <img src={regionImage} alt={name} />}
-        <h4>{regionDescription}</h4>
-      </div>
-
-      {regions.locations.length > 0 ? (
-        <div className={styles.locations}>
-          <div className={styles.dropdown}>
-            <h1>Locations</h1>
-            <button
-              onClick={handleDropdown}
-              className={!isExpanded ? styles.arrow : styles.active}
-            >
-              <span className="icon-circle-down"></span>
-            </button>
+      {regions && (
+        <div className={styles.regionOutlet}>
+          <div className={styles.regionTitle}>
+            <h2>{regions.name} was introduced in</h2>
+            {regions.main_generation && <h2>{regions.main_generation.name}</h2>}
           </div>
 
-          {isExpanded && (
-            <div className={styles.locationsContainer}>
-              {regions.locations.slice(0, showLocations).map((region) => (
-                <div key={region.id} className={styles.locationCard}>
-                  <h2>{region.name}</h2>
-                  <LocationsDetails name={region.name} />
-                </div>
-              ))}
-              <div className={styles.buttonsContainer}>
-                <button onClick={handleShowLess}>LESS</button>
-                <button onClick={handleShowMore}>MORE</button>
+          <div className={styles.regionDescription}>
+            {regionImage && <img src={regionImage} alt={name} />}
+            <h4>{regionDescription}</h4>
+          </div>
+
+          {regions.locations.length > 0 ? (
+            <div className={styles.locations}>
+              <div className={styles.dropdown}>
+                <h1>Locations</h1>
+                <button
+                  onClick={handleDropdown}
+                  className={!isExpanded ? styles.arrow : styles.active}
+                >
+                  <span className="icon-circle-down"></span>
+                </button>
               </div>
+
+              {isExpanded && (
+                <div className={styles.locationsContainer}>
+                  {regions.locations.slice(offset, offset + limit).map((region) => (
+                    <div key={region.id} className={styles.locationCard}>
+                      <h2>{region.name}</h2>
+                      <LocationsDetails name={region.name} />
+                    </div>
+                  ))}
+                  <div className={styles.buttonsContainer}>
+                    {regions && (
+                      <div className={styles.loadingButtonsRegions}>
+                        {offset > 0 && (
+                          <button onClick={handleShowLess}>LESS</button>
+                        )}
+                        {regions.locations.length > offset + limit && (
+                          <button onClick={handleShowMore}>MORE</button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
+          ) : (
+            <h2>No locations to display</h2>
           )}
         </div>
-      ) : (
-        <h2>No locations to display</h2>
       )}
-    </div>
-  )}
-  </>
+    </>
   );
 };
 
 export default RegionDetails;
-
-

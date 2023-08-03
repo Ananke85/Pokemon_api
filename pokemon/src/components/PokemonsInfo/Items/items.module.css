@@ -1,0 +1,106 @@
+.itemCard {
+  max-width: 40em;
+  background-color: var(--grey);
+  padding: 0 2em 1em 2em;
+  border: none;
+  border-radius: 1em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  text-transform: capitalize;
+  transition: transform 0.3 ease;
+  border: 0.4em solid var(--yellow-main);
+  text-align: justify;
+  min-height: fit-content;
+  background-color: var(--blue-medium);
+  color: white;
+}
+
+.image {
+  background-color: var(--grey);
+  display: flex;
+  align-items: center;
+  height: 6em;
+  border-radius: 4em;
+  padding-left: 1em;
+  color: var(--blue-dark);
+}
+
+.itemCard:hover {
+  transform: translateY(-1em);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+}
+.titleDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.titleDetails img {
+  width: 7em;
+}
+
+.nonCapi {
+  text-transform: none;
+}
+
+.attributeContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 2em;
+  color: var(--blue-dark);
+}
+
+.attribute {
+  background-color: white;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  border: none;
+  margin: 0.5em 0;
+}
+
+.index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid {
+  background-color: var(--yellow-main);
+  border-radius: 2em;
+  padding: 0 0 0 1em;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+.grid h4 {
+  font-weight: bold;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown button {
+  width: fit-content;
+  background-color: transparent;
+}
+
+.dropdown span {
+  color: var(--yellow-main);
+}
+
+.dropdown span:hover {
+  color: var(--blue-light);
+}
+.arrow {
+  font-size: 2em;
+}
+
+.active {
+  transform: rotate(180deg);
+  font-size: 2em;
+}

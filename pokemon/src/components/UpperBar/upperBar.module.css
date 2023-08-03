@@ -28,6 +28,7 @@
   background-color: var(--yellow-main);
 }
 
+
 /* Media queries for responsiveness */
 @media screen and (min-width: 75em) and (max-width: 95em) {
   .upperBar {

@@ -13,6 +13,7 @@ import {
   BERRIES,
   BLOG,
   HOME,
+  ITEMS,
   LOCATIONS,
   LOCATIONS_DETAILS,
   POKEMONS,
@@ -27,6 +28,7 @@ import Locations from "./components/PokemonsInfo/Locations/Locations";
 import LocationsDetails from "./components/PokemonsInfo/Locations/LocationsDetails";
 import Regions from "./components/PokemonsInfo/Regions/Regions";
 import RegionDetails from "./components/PokemonsInfo/Regions/RegionsDetails";
+import Items from "./components/PokemonsInfo/Items/Items";
 
 function App() {
   const queryClient = new QueryClient();
@@ -53,6 +55,9 @@ function App() {
               </Route>
               <Route path={LOCATIONS} element={<Locations />}>
                 <Route path={LOCATIONS_DETAILS} element={<LocationsDetails />} />
+              </Route>
+              <Route path={ITEMS} element={<Items />}>
+                {/* <Route path={LOCATIONS_DETAILS} element={<LocationsDetails />} /> */}
               </Route>
 
             </Route>

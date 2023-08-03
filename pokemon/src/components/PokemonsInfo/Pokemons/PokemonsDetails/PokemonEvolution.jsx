@@ -61,6 +61,7 @@ const PokemonEvolution = () => {
     [firstPokemon, secondPokemon, thirdPokemon],
     pokemonName
   );
+  console.log("la evolucion", pokemonEvolution)
 
   const [firstEvoImg, setFirstEvoImg] = useState("");
   const [secondEvoImg, setSecondEvoImg] = useState("");
@@ -177,7 +178,7 @@ const PokemonEvolution = () => {
             </h5>
           </div>
         ) : (
-          <div>No description available</div>
+          <h4 className={styles.noDescription}>No description available</h4>
         )}
       </div>
     </>

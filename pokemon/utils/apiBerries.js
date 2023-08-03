@@ -19,15 +19,6 @@ export const getAllBerries = (offset, limit) => {
     });
 };
 
-export const getAllPokemons = (offset, limit) => {
-  return api
-    .get(`/pokemon/?offset=${offset}&limit=${limit}`)
-    .then((res) => res.data)
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
 export const getBerriesDetails = (name) => {
   return api
     .get(`/berry/${name}/`)

@@ -8,6 +8,7 @@ export const POKEMONS = "/pokemons/pokemon"
 export const BERRIES = "/pokemons/berries"
 export const LOCATIONS = "/pokemons/locations"
 export const REGIONS = "/pokemons/regions"
+export const ITEMS = "/pokemons/items"
 
 
 export const POKEMON_DETAILS = "/pokemons/pokemon/:name"

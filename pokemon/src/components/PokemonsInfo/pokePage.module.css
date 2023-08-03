@@ -9,12 +9,10 @@
   /* padding-right: 1em; */
 }
 
-
 .pageContainer {
   margin-bottom: 4em;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 2em;
 }
 
@@ -73,7 +71,23 @@
 
 .loadingButtonsBerries {
   display: flex;
+  justify-content: center;
   gap: 3em;
+}
+
+.loadingButtonsItems {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  margin-bottom: 3em;
+}
+
+.itemsContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin: 3em auto;
 }
 
 /* Media query for responsiveness */

@@ -226,6 +226,18 @@
   margin-top: auto;
 }
 
+.noDescription {
+  background-color: var(--grey);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 0 2em;
+  border: none;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  height: 5em;
+  font-size: 1.5em;
+}
+
 .descTitle {
   display: flex;
   gap: 0.8em;
@@ -365,7 +377,6 @@
   width: fit-content;
   background-color: transparent;
   color: var(--yellow-main);
-
 }
 .dropdown button:hover {
   color: var(--blue-light);

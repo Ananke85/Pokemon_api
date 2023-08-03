@@ -7,17 +7,31 @@
 }
 
 .locationCard {
-  width: 15em;
+  width: 25em;
   background-color: var(--grey);
+  background: radial-gradient(circle, var(--blue-light), var(--blue-medium));
   border-radius: 1em;
-  padding: 0 2em;
+  padding: 0 2em 2em 2em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  height: fit-content;
+  transition: transform 0.3 ease;
+}
+
+.locationCard:hover {
+  transform: translateY(-1em);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.locationCard h2 {
+  text-transform: capitalize;
+  text-align: center;
 }
 
 .regionTitle {
   display: flex;
   gap: 0.5em;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .nonCapi {
@@ -90,6 +104,11 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.loadingButtonsRegions {
+  display: flex;
+  gap: 3em;
 }
 
 
