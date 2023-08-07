@@ -1,4 +1,122 @@
 .blog {
-  padding: 15rem 5rem 4rem 5rem;
+  padding: 17rem 6rem 4rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 5em;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.blogCard img {
+  width: 90%;
+  border-radius: 2em;
+  border: 0.5em solid var(--yellow-main);
+}
+.blogCard link {
+  text-decoration: none;
+  color: var(--blue-dark)
+
+}
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45em;
+  padding: 0 2.5em 2em 2.5em;
+  background-color: var(--grey);
+  border-radius: 2em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  color: var(--blue-dark)
+  /* transition: transform 0.3 ease; */
+}
+
+
+
+.blogCard:hover {
+  /* transform: translateY(-2em); */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  background-color: var(--blue-dark);
+  color: white;
+}
+
+.blogCard h2 {
+  line-height: 1.3em;
+}
+
+.blogCard h3 {
+  text-align: justify;
+}
+
+.blog a {
+  text-decoration: none;
+}
+
+/* CSS for blogPost */
+
+.post {
+  padding: 13em 4em 5em 4em;
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  justify-content: space-between;
+  background-color: var(--grey);
+  /* Add box-shadow for left and right sides */
+  box-shadow:
+    -10px 0px 15px rgba(0, 0, 0, 0.2),
+    10px 0px 15px rgba(0, 0, 0, 0.2);
+  /* Add border to the right and left sides */
+  border-left: 1em solid var(--blue-medium);
+  border-right: 1em solid var(--blue-medium);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post h1 {
+  line-height: 1em;
+}
+
+.post h2 {
+  line-height: 1.2em;
+}
+
+.post img {
+  width: 80%;
+  height: auto;
+  border-radius: 2em;
+  border: 0.5em solid var(--yellow-main);
+}
+
+.post p {
+  font-size: 1.7em;
+}
+
+.signature {
+  font-style: italic;
+  position: relative;
+  left: 35%;
+}
+
+.features {
+  background-color: var(--blue-medium);
+  color: white;
+  border-radius: 1em;
+  padding: 1em 4em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features img {
+  width: 60%;
+  display: flex;
+  align-items: center;
 }

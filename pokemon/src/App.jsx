@@ -12,6 +12,7 @@ import {
   ABOUT,
   BERRIES,
   BLOG,
+  BLOGPOST,
   HOME,
   ITEMS,
   LOCATIONS,
@@ -29,6 +30,7 @@ import LocationsDetails from "./components/PokemonsInfo/Locations/LocationsDetai
 import Regions from "./components/PokemonsInfo/Regions/Regions";
 import RegionDetails from "./components/PokemonsInfo/Regions/RegionsDetails";
 import Items from "./components/PokemonsInfo/Items/Items";
+import Post from "./components/Blog/Post";
 
 function App() {
   const queryClient = new QueryClient();
@@ -42,6 +44,8 @@ function App() {
             <Route path={HOME} element={<Home />} />
             <Route path={ABOUT} element={<About />} />
             <Route path={BLOG} element={<Blog />} />
+            <Route path={BLOGPOST} element={<Post />} />
+
             <Route path={POKEPAGE} element={<PokePage />}>
               <Route path="" element={<Pokemons />} />
               <Route path={POKEMONS} element={<Pokemons />}>
@@ -54,12 +58,14 @@ function App() {
                 <Route path={REGIONS_DETAILS} element={<RegionDetails />} />
               </Route>
               <Route path={LOCATIONS} element={<Locations />}>
-                <Route path={LOCATIONS_DETAILS} element={<LocationsDetails />} />
+                <Route
+                  path={LOCATIONS_DETAILS}
+                  element={<LocationsDetails />}
+                />
               </Route>
               <Route path={ITEMS} element={<Items />}>
                 {/* <Route path={LOCATIONS_DETAILS} element={<LocationsDetails />} /> */}
               </Route>
-
             </Route>
           </Routes>
         </PokemonProvider>

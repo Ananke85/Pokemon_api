@@ -3,6 +3,8 @@ export const POKEPAGE = "/pokemons"
 export const ABOUT = "/about"
 export const CONTACT = "/contact"
 export const BLOG = "/blog"
+export const BLOGPOST = "/blog/:id/:title"
+
 
 export const POKEMONS = "/pokemons/pokemon"
 export const BERRIES = "/pokemons/berries"
