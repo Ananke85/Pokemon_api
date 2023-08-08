@@ -41,6 +41,8 @@ const Blog = () => {
 
   return (
     <>
+    <div className={styles.blogContainer}>
+      <h1>PokéNews</h1>
       <div className={styles.blog}>
         {posts &&
           visiblePosts.map((post, index) => (
@@ -51,7 +53,7 @@ const Blog = () => {
               <h3>{post.intro}</h3>
 
               <Link
-                to={`/blog/${post._id}/${encodeURIComponent(
+                to={`/pokenews/${post._id}/${encodeURIComponent(
                   post.title.toLowerCase().replace(/\s+/g, "-")
                 )}`}
               >
@@ -60,27 +62,27 @@ const Blog = () => {
             </div>
           ))}
 
-        <div className={styles.loadingButtons}>
+        
+      </div>
+      <div className={styles.loadingButtons}>
           {posts && posts.length > limit && postsCount < posts.length && (
             <button onClick={showMore} className={styles.view}>
-              <span
-                // onClick={handleNextCard}
+              {/* <span
                 className="icon-point-right"
-              ></span>
+              ></span> */}
               LOAD MORE
             </button>
           )}
           {posts && postsCount > limit && (
             <button onClick={showLess} className={styles.view}>
-              <span
-                // onClick={handlePreviousCard}
+              {/* <span
                 className="icon-point-left"
-              ></span>
+              ></span> */}
               LOAD LESS
             </button>
           )}
         </div>
-      </div>
+        </div>
     </>
   );
 };

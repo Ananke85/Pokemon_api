@@ -21,7 +21,7 @@ const NavBar = () => {
           <div className={styles.links}>
             <Link to={POKEPAGE}>POKÉMONS</Link>
             <Link to={ABOUT}>ABOUT</Link>
-            <Link to={BLOG}>BLOG</Link>
+            <Link to={BLOG}>POKÉNEWS</Link>
           </div>
           <AudioPlayer />
         </div>

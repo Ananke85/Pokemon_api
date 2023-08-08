@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./blog.module.css";
 import { useQuery } from "react-query";
 import { getPostById } from "../../../utils/apiBlog";
+import RelatedPosts from "./RelatedPosts";
 
 const Post = () => {
   const { id } = useParams();
@@ -76,8 +77,22 @@ const Post = () => {
             ))}
           {data.conclusion && <h2>{data.conclusion}</h2>}
           <h3 className={styles.signature}>{data.signature}</h3>
+          <div className={styles.thanks}>
+          <h3>
+            Special thanks to
+            <Link to="https://www.pokemon.com/us" target="blank">
+              {" "}
+              pokemon.com{" "}
+            </Link>
+            for providing this Pokénew
+          </h3>
+
+          </div>
+          
         </div>
       )}
+
+      {data && <RelatedPosts data={data} />}
     </>
   );
 };

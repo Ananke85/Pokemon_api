@@ -1,7 +1,10 @@
+.blogContainer {
+  padding: 13rem 6rem 4rem 6rem;
+}
+
 .blog {
-  padding: 17rem 6rem 4rem 6rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 5em;
   justify-content: space-around;
   display: flex;
@@ -15,8 +18,7 @@
 }
 .blogCard link {
   text-decoration: none;
-  color: var(--blue-dark)
-
+  color: var(--blue-dark);
 }
 .blogCard {
   display: flex;
@@ -27,11 +29,9 @@
   background-color: var(--grey);
   border-radius: 2em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  color: var(--blue-dark)
+  color: var(--blue-dark);
   /* transition: transform 0.3 ease; */
 }
-
-
 
 .blogCard:hover {
   /* transform: translateY(-2em); */
@@ -119,4 +119,90 @@
   width: 60%;
   display: flex;
   align-items: center;
+}
+
+.loadingButtons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+/* CSS FOR RELATED POSTS */
+
+.relatedContainer {
+  background-color: var(--blue-dark);
+  background-color: var(--blue-medium);
+
+  height: 100%;
+  padding: 2em 20em;
+  padding-bottom: 5em;
+  color: white;
+  box-shadow: 0px -15px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.1fr 5fr 0.5fr;
+  gap: 2em;
+  align-items: center;
+}
+
+.container button {
+  width: fit-content;
+  height: auto;
+  font-size: 4em;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.container span:hover {
+  color: var(--yellow-main);
+}
+
+.container button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container button.disabled span {
+  color: transparent;
+}
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 3em;
+  justify-content: center;
+}
+
+.postito {
+  background-color: var(--blue-light);
+  padding: 0 1em;
+  border-radius: 2em;
+}
+
+.postito:hover {
+  background-color: var(--yellow-main);
+}
+
+.postito a {
+  text-decoration: none;
+  color: white;
+}
+
+
+/* CSS FOR THANKS */
+.thanks h3 {
+  font-style: italic;
+  text-align: right;
+}
+
+.thanks a {
+  color: var(--blue-light)
+}
+
+.thanks a:hover {
+  color: var(--yellow-main)
 }
