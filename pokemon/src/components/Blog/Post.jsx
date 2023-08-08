@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./blog.module.css";
 import { useQuery } from "react-query";
 import { getPostById } from "../../../utils/apiBlog";
@@ -80,10 +80,10 @@ const Post = () => {
           <div className={styles.thanks}>
           <h3>
             Special thanks to
-            <Link to="https://www.pokemon.com/us" target="blank">
+            <a href="https://www.pokemon.com/us" target="blank">
               {" "}
               pokemon.com{" "}
-            </Link>
+            </a>
             for providing this Pokénew
           </h3>
 
