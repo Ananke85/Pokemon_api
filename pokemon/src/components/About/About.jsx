@@ -2,7 +2,7 @@ import styles from "./about.module.css";
 import pikachu from "../../assets/pikachu_smile.png";
 import pokemon from "../../assets/pokemon_global.jpg";
 import community from "../../assets/pokemon_community.webp";
-import video from "../../assets/pokemon_video.mp4";
+import video from "../../assets/PokemonVideo.mp4";
 
 // import video2 from "../../assets/pokemon_video2.mp4"
 // import video3 from "../../assets/pokemon_video3.mp4"
@@ -92,8 +92,7 @@ const About = () => {
           </ul>
 
           <video className={styles.video} 
-          src= "https://www.canva.com/design/DAFrUsR9Rvs/8WAposHBmdTl5BXYOd3Aww/watch?utm_content=DAFrUsR9Rvs&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel"
-          // src={video} 
+          src={video} 
           controls></video>
 
 
