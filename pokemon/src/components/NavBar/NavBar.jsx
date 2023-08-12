@@ -13,17 +13,18 @@ const NavBar = () => {
             <img src={logo} alt="pokemon logo" className={styles.logo} />
           </Link>
 
-          <div className={styles.searchBar}>
+          {/* <div className={styles.searchBar}>
             <h6 className={styles.search}>Find your Pokémon</h6>
             <button>SEARCH</button>
-          </div>
+          </div> */}
 
           <div className={styles.links}>
             <Link to={POKEPAGE}>POKÉMONS</Link>
             <Link to={ABOUT}>ABOUT</Link>
             <Link to={BLOG}>POKÉNEWS</Link>
+            <AudioPlayer />
+
           </div>
-          <AudioPlayer />
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import styles from "./pokemonDetails.module.css";
-import { useContext } from "react";
-import { PokemonContext } from "../../../../context/PokemonContext";
+// import { useContext } from "react";
+// import { PokemonContext } from "../../../../context/PokemonContext";
 import {
   getPokemonAbilities,
   getPokemonDetails,
@@ -32,8 +32,8 @@ import PokemonStats from "./PokemonStats";
 const PokemonDetails = () => {
   const { name } = useParams();
   const { data } = useQuery(["details", name], () => getPokemonDetails(name));
-  const { index, handleNextCard, handlePreviousCard } =
-    useContext(PokemonContext);
+  // const { index, handleNextCard, handlePreviousCard } =
+  //   useContext(PokemonContext);
 
   // Pokemon Abilities
   const primaryAbility = data && data.abilities[0]?.ability.name;
@@ -81,15 +81,14 @@ const PokemonDetails = () => {
       {data && (
         <div className={styles.outlet}>
           <div className={styles.firstRow}>
-            <div className={styles.buttonWrrapper}>
+            {/* <div className={styles.buttonWrrapper}>
               {index && index[0]?.name !== name && (
-                // <button onClick={handlePreviousCard}><span className="icon-point-left"></span></button>
                 <span
                   onClick={handlePreviousCard}
                   className="icon-point-left"
                 ></span>
               )}
-            </div>
+            </div> */}
 
             <div className={styles.container}>
               <div
@@ -159,7 +158,7 @@ const PokemonDetails = () => {
               {data && <PokemonEvolution />}
               {data && <PokemonStats />}
             </div>
-            <div className={styles.buttonWrrapper}>
+            {/* <div className={styles.buttonWrrapper}>
               {index && index[13]?.name !== name && (
                 // <button onClick={handleNextCard}><span className="icon-point-right"></span></button>
                 <span
@@ -167,17 +166,9 @@ const PokemonDetails = () => {
                   className="icon-point-right"
                 ></span>
               )}
-            </div>
+            </div> */}
           </div>
 
-          {/* <div className={styles.buttons}>
-            {index && index[0]?.name !== name && (
-              <button onClick={handlePreviousCard}>PREVIOUS</button>
-            )}
-            {index && index[13]?.name !== name && (
-              <button onClick={handleNextCard}>NEXT</button>
-            )}
-          </div> */}
         </div>
       )}
     </>
@@ -186,5 +177,3 @@ const PokemonDetails = () => {
 
 export default PokemonDetails;
 
-// const evolutesFrom = species && species.evolves_from_species.name;
-// console.log("evoluciona de:", evolutesFrom);

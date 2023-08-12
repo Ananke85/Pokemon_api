@@ -1,10 +1,9 @@
 .upperBar {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1em;
-  /* position: relative; */
+  gap: 5em;
 }
 
 .upperBar a {

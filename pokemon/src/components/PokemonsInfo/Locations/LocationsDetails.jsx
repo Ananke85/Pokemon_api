@@ -9,20 +9,14 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const LocationsDetails = ({ name }) => {
-  // const { name } = useParams();
 
   const { data } = useQuery(["location-details", name], () =>
     getLocationByName(name)
   );
-
   const id = data && data.id;
-  console.log("el id", id);
-
   const { data: location } = useQuery(["location", id], () =>
     getLocationArea(id)
   );
-  console.log(" los detalles de la localizacion", location);
-
   const [isExpanded, setIsExpanded] = useState(false);
   const handleDropdown = () => {
     setIsExpanded(!isExpanded);

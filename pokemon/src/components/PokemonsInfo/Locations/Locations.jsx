@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 
 const Locations = () => {
   const { data } = useQuery(["locations"], getAllLocations);
-  console.log("todas locations", data);
-
   const limit = 13;
   const [offset, setOffset] = useState(0)
   const [locationList, setLocationList] = useState([])

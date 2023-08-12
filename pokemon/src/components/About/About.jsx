@@ -4,7 +4,39 @@ import pokemon from "../../assets/pokemon_global.jpg";
 import community from "../../assets/pokemon_community.webp";
 import video from "../../assets/pokemon_video.mp4";
 
+// import video2 from "../../assets/pokemon_video2.mp4"
+// import video3 from "../../assets/pokemon_video3.mp4"
+// import video4 from "../../assets/pokemon_video4.mp4"
+// import video5 from "../../assets/pokemon_video5.mp4"
+// import video6 from "../../assets/pokemon_video6.mp4"
+// import video7 from "../../assets/pokemon_video7.mp4"
+
+
+// import { useRef, useState } from "react";
+
 const About = () => {
+// const videoCarousel = [
+//   video: video,
+//   video2: video2,
+//   video3: video3,
+//   video4: video4,
+//   video5: video5,
+//   video6: video6,
+//   video7: video7
+
+// ];
+
+// const [activeIndex, setActiveIndex] = useState(0)
+// const videoRef = useRef(null)
+
+// const handleVideoEnd = () => {
+//   if (activeIndex < videoCarousel.length -1) {
+//     setActiveIndex(activeIndex + 1)
+//     videoRef.current.play()
+//   }
+// }
+
+
   return (
     <>
       <div className={styles.about}>
@@ -59,7 +91,21 @@ const About = () => {
             <li>Season 13: Sinnoh League Victors</li>
           </ul>
 
-          <video className={styles.video} src={video} controls></video>
+          <video className={styles.video} 
+          src= "https://www.canva.com/design/DAFrUsR9Rvs/8WAposHBmdTl5BXYOd3Aww/watch?utm_content=DAFrUsR9Rvs&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel"
+          // src={video} 
+          controls></video>
+
+
+          {/* <video
+          ref= {videoRef}
+          src={videoCarousel[activeIndex]}
+          controls
+          onEnded={handleVideoEnd}
+          
+          >
+            
+          </video> */}
 
           <ul className={styles.videoList}>
             <li>Season 14: Black & White</li>
@@ -91,7 +137,11 @@ const About = () => {
           </a>{" "}
           . <br></br> If you want to see more of my work, please, do not
           hesitate to visit my{" "}
-          <a href="https://github.com/Ananke85" target="blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/Ananke85"
+            target="blank"
+            rel="noopener noreferrer"
+          >
             {" "}
             Github profile{" "}
           </a>
