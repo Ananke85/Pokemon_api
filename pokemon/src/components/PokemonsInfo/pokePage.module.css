@@ -1,0 +1,118 @@
+.pokePage {
+  padding: 14em 10em 0 10em;
+}
+
+.pageOutlet {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  /* gap: 3em; */
+  /* padding-right: 1em; */
+}
+
+.pageContainer {
+  margin-bottom: 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.6em;
+  flex-wrap: wrap;
+  margin-bottom: 3em;
+}
+
+.list {
+  width: 100%;
+  /* max-width: 20vw; */
+  /* padding: 1em 0 2em 0; */
+}
+
+.description > h4 {
+  text-align: justify;
+}
+
+.element {
+  background-color: var(--grey);
+  width: 75%;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: var(--blue-dark);
+  padding: 0.5em 0 0.5em 2em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6em;
+  border-radius: 1em;
+  text-transform: capitalize;
+}
+
+.element:hover {
+  background-color: var(--blue-light);
+  color: white;
+}
+
+.element:focus {
+  background-color: var(--yellow-main);
+  color: white;
+  font-weight: bold;
+}
+
+.loadingButtons {
+  width: 83%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 2em;
+}
+
+.loadingButtonsBerries {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+}
+
+.loadingButtonsItems {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  margin-bottom: 3em;
+}
+
+.itemsContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin: 3em auto;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 65em) {
+  .pageOutlet {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    align-items: center;
+    /* display: block; */
+  }
+}
+
+/* Nested CSS Grid for each item */
+.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+}
+
+/* Media query to adjust nested layout */
+@media screen and (max-width: 65em) {
+  .item {
+    display: grid;
+    grid-template-columns: 1fr; /* Use single column layout for small screens */
+    gap: 2em;
+  }
+}

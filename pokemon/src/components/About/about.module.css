@@ -1,0 +1,153 @@
+.about {
+  padding: 8vw 0 0 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4em;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text h1 {
+  font-size: 8em;
+  line-height: 1em;
+}
+
+.text h2 {
+  color: var(--blue-medium);
+}
+
+.title img {
+  max-width: 100%;
+  border-radius: 2em;
+  box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quote {
+  background-color: var(--yellow-main);
+  color: white;
+  padding-left: 8em;
+  width: 100vw;
+  position: relative;
+  left: -4vw;
+}
+
+.quote h1 {
+  width: 65%;
+  line-height: 1.5em;
+}
+
+.valuesContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.values {
+  width: 45em;
+  display: flex;
+  flex-direction: column;
+}
+
+.valuesContainer img {
+  max-width: 100%;
+  border-radius: 2em;
+  box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.values h1 {
+  background-color: var(--blue-medium);
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  border-radius: 3em;
+}
+
+.seasons {
+  background-color: var(--yellow-main);
+  color: white;
+  padding-left: 8em;
+  width: 100vw;
+  position: relative;
+  left: -4vw;
+}
+
+.videoListContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2em;
+}
+
+.videoList li {
+  font-size: 1.8em;
+}
+
+.video {
+  width: 100%;
+  border: 0;
+  margin-bottom: 4em;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  align-items: end;
+  /* background-image: linear-gradient(to top left, var(--blue-dark), white); */
+  background-image: linear-gradient(to left, var(--blue-dark), white);
+}
+
+.skills img {
+  padding-left: 20em;
+}
+
+.skills h3 {
+  text-align: right;
+  color: white;
+  padding-right: 4vw;
+  padding-bottom: 2vw;
+  word-wrap: break-word;
+}
+
+.skills a {
+  color: var(--blue-light);
+}
+.skills a:hover {
+  color: var(--yellow-main);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 2000px) {
+  .title {
+    grid-template-columns: 1fr;
+  }
+
+  .videoListContainer {
+    grid-template-columns: 1fr;
+  }
+  .valuesContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .skills img {
+    padding-left: 0;
+  }
+  .skills h3 {
+    text-align: center;
+    padding: 2vw;
+  }
+}

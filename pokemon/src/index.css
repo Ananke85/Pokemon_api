@@ -1,0 +1,105 @@
+:root {
+  font-family: 'Roboto', sans-serif;  
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --red: #f11213;
+  --blue-light: #93cfe1;
+  --blue-medium: #2e5891;
+  --blue-dark: #0e165c;
+  --yellow-main: #ffcb38;
+  --yellow-light: #fcf7e3;
+  --yellow-dark: #706a53c0;
+  --grey: #eaeeee;
+  --grey-dark: #505050;
+
+/* background colors for pokemon type */
+
+  --normal: #a7a87e;
+  --fire: #d98545;
+  --water: #7990e9;
+  --grass: #90c562;
+  --electric: #ecd156;
+  --ice: #acd6d7;
+  --fighting: #a93d31;
+  --poison: #90489b; 
+  --ground: #d7c176; 
+  --flying: #a592e9;
+  --psychic: #dc6488;
+  --bug: #aab744;  
+  --rock: #b0a04c;
+  --ghost: #6c5a94;
+  --dragon: #6d41ee;
+  --dark: #6a594a; 
+  --steel: #b8b8ce; 
+  --fairy: #e2b8bd;
+
+  color: var(--blue-dark);
+}
+
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2.8em;
+  font-weight: 900;
+  line-height: 2.5em;
+}
+h2 {
+  font-size: 2.2em;
+  font-weight: 900;
+  line-height: 2em;
+}
+h3 {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+h4 {
+  font-size: 1.4em;
+  font-weight: 400;
+}
+h5 {
+  font-size: 1.3em;
+  font-weight: 300;
+}
+h6 {
+  font-size: 1.2em;
+  font-weight: 400;
+
+}
+p {
+  font-size: 1.1em;
+  font-weight: 400;
+
+}
+
+button {
+  color: white;
+  background-color: var(--yellow-main);
+  border: none;
+  border-radius: 2em;
+  padding: 0.7em;
+  width: 10em;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--blue-light);
+  cursor: pointer;
+}
