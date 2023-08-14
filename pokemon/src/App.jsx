@@ -51,9 +51,7 @@ function App() {
               <Route path={POKEMONS} element={<Pokemons />}>
                 <Route path={POKEMON_DETAILS} element={<PokemonDetails />} />
               </Route>
-              <Route path={BERRIES} element={<Berries />}>
-                {/* <Route path={BERRIES_DETAILS} element={<BerriesDetails />} /> */}
-              </Route>
+              <Route path={BERRIES} element={<Berries />}></Route>
               <Route path={REGIONS} element={<Regions />}>
                 <Route path={REGIONS_DETAILS} element={<RegionDetails />} />
               </Route>
@@ -63,9 +61,7 @@ function App() {
                   element={<LocationsDetails />}
                 />
               </Route>
-              <Route path={ITEMS} element={<Items />}>
-                {/* <Route path={LOCATIONS_DETAILS} element={<LocationsDetails />} /> */}
-              </Route>
+              <Route path={ITEMS} element={<Items />}></Route>
             </Route>
           </Routes>
         </PokemonProvider>

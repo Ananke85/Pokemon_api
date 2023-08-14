@@ -206,6 +206,7 @@
 }
 
 .description {
+  max-width: 100%;
   background-color: var(--grey);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   padding: 0 2em;
@@ -431,18 +432,12 @@
   background: radial-gradient(circle, var(--fairy), var(--grey-dark));
 }
 
-/* 
-@media screen and (min-width: 85em) {
-  .outlet {
-    flex-wrap: wrap;
+
+@media screen and (max-width: 2000px) {
+  .firstRow {
+    grid-template-columns: 1fr;
   }
 }
-
-@media screen and (min-width: 85em) {
-  .firstRow {
-    flex-wrap: wrap;
-  }
-} */
 
 /* card shining */
 

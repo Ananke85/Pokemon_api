@@ -5,7 +5,6 @@ export const CONTACT = "/contact"
 export const BLOG = "/pokenews"
 export const BLOGPOST = "/pokenews/:id/:title"
 
-
 export const POKEMONS = "/pokemons/pokemon"
 export const BERRIES = "/pokemons/berries"
 export const LOCATIONS = "/pokemons/locations"

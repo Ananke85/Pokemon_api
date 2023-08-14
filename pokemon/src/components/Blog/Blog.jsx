@@ -3,12 +3,10 @@ import styles from "./blog.module.css";
 import { getAllPosts } from "../../../utils/apiBlog";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Spinner from "../Spinner/Spinner";
 
 const Blog = () => {
-  const { data: posts } = useQuery(["blogpost"], getAllPosts);
-
-  console.log("los posts", posts);
-
+  const { data: posts, isLoading } = useQuery(["blogpost"], getAllPosts);
   const dates = posts && posts.map((post) => post.date);
   const limit = 6;
   const [postsCount, setpostsCount] = useState(6);
@@ -41,48 +39,45 @@ const Blog = () => {
 
   return (
     <>
-    <div className={styles.blogContainer}>
-      <h1>PokéNews</h1>
-      <div className={styles.blog}>
-        {posts &&
-          visiblePosts.map((post, index) => (
-            <div key={post._id} className={styles.blogCard}>
-              <h2>{post.title}</h2>
-              <h4>{formattedDates[index]}</h4>
-              <img src={post.image}></img>
-              <h3>{post.intro}</h3>
+      {isLoading && <Spinner />}
+      {!isLoading && (
+        <>
+          <div className={styles.blogContainer}>
+            <h1>PokéNews</h1>
+            <div className={styles.blog}>
+              {posts &&
+                visiblePosts.map((post, index) => (
+                  <div key={post._id} className={styles.blogCard}>
+                    <h2>{post.title}</h2>
+                    <h4>{formattedDates[index]}</h4>
+                    <img src={post.image}></img>
+                    <h3>{post.intro}</h3>
 
-              <Link
-                to={`/pokenews/${post._id}/${encodeURIComponent(
-                  post.title.toLowerCase().replace(/\s+/g, "-")
-                )}`}
-              >
-                <button>GO!</button>
-              </Link>
+                    <Link
+                      to={`/pokenews/${post._id}/${encodeURIComponent(
+                        post.title.toLowerCase().replace(/\s+/g, "-")
+                      )}`}
+                    >
+                      <button>GO!</button>
+                    </Link>
+                  </div>
+                ))}
             </div>
-          ))}
-
-        
-      </div>
-      <div className={styles.loadingButtons}>
-          {posts && posts.length > limit && postsCount < posts.length && (
-            <button onClick={showMore} className={styles.view}>
-              {/* <span
-                className="icon-point-right"
-              ></span> */}
-              LOAD MORE
-            </button>
-          )}
-          {posts && postsCount > limit && (
-            <button onClick={showLess} className={styles.view}>
-              {/* <span
-                className="icon-point-left"
-              ></span> */}
-              LOAD LESS
-            </button>
-          )}
-        </div>
-        </div>
+            <div className={styles.loadingButtons}>
+              {posts && posts.length > limit && postsCount < posts.length && (
+                <button onClick={showMore} className={styles.view}>
+                  LOAD MORE
+                </button>
+              )}
+              {posts && postsCount > limit && (
+                <button onClick={showLess} className={styles.view}>
+                  LOAD LESS
+                </button>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };

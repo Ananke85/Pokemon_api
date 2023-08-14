@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  
 }
 
 .title {
@@ -74,7 +73,6 @@
   border-radius: 3em;
 }
 
-
 .seasons {
   background-color: var(--yellow-main);
   color: white;
@@ -84,13 +82,10 @@
   left: -4vw;
 }
 
-
-
 .videoListContainer {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  justify-content: center;
   gap: 2em;
 }
 
@@ -101,19 +96,15 @@
 .video {
   width: 100%;
   border: 0;
-  position: relative;
-  top: -4em;
+  margin-bottom: 4em;
 }
 
-
 .skills {
-display: grid;
-grid-template-columns: 2fr 1.5fr;
-align-items: end;
-/* background-image: linear-gradient(to top left, var(--blue-dark), white); */
-background-image: linear-gradient(to left, var(--blue-dark), white);
-
-
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  align-items: end;
+  /* background-image: linear-gradient(to top left, var(--blue-dark), white); */
+  background-image: linear-gradient(to left, var(--blue-dark), white);
 }
 
 .skills img {
@@ -128,14 +119,12 @@ background-image: linear-gradient(to left, var(--blue-dark), white);
   word-wrap: break-word;
 }
 
-
 .skills a {
   color: var(--blue-light);
 }
 .skills a:hover {
   color: var(--yellow-main);
 }
-
 
 /* Media query for smaller screens */
 @media (max-width: 2000px) {
@@ -155,10 +144,10 @@ background-image: linear-gradient(to left, var(--blue-dark), white);
   }
 
   .skills img {
-    padding-left: 0; 
+    padding-left: 0;
   }
   .skills h3 {
-    text-align: center; 
-    padding: 2vw; 
+    text-align: center;
+    padding: 2vw;
   }
 }

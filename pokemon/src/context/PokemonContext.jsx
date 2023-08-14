@@ -7,7 +7,7 @@ export const PokemonContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const PokemonProvider = ({ children }) => {
-  const { data } = useQuery(["pokemons"], getAllPokemons);
+  const { data, isLoading } = useQuery(["pokemons"], getAllPokemons);
   const { name } = useParams();
   const navigate = useNavigate();
 
@@ -18,7 +18,6 @@ export const PokemonProvider = ({ children }) => {
   const {data: details} = useQuery(["details", name], () => getPokemonDetails(name));
 
   const pokemonType = details && details.types[0]?.type.name;
-  // console.log("el tipo", pokemonType)
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -59,7 +58,8 @@ export const PokemonProvider = ({ children }) => {
         handlePreviousCard,
         pokemonNames,
         index,
-        pokemonType
+        pokemonType,
+        isLoading
       }}
     >
       {children}

@@ -104,3 +104,14 @@
   transform: rotate(180deg);
   font-size: 2em;
 }
+
+
+
+/* @media screen and (max-width: 2000px) {
+  .itemsContainer {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box
+  }
+  
+} */

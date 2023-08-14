@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./upperBar.module.css";
 
 const UpperBar = () => {
-
   return (
     <>
       <div className={styles.upperBar}>
@@ -11,9 +10,6 @@ const UpperBar = () => {
         <Link to={BERRIES}>Berries</Link>
         <Link to={ITEMS}>Items</Link>
         <Link to={REGIONS}>Regions</Link>
-
-        {/* <Link to={LOCATIONS}>Locations</Link> */}
-
       </div>
     </>
   );

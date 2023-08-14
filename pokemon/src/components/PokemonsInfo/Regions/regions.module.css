@@ -112,4 +112,14 @@
 }
 
 
+@media screen and (max-width: 2000px) {
+  .regionDescription {
+    grid-template-columns: 1fr;
+  }
+  .regionOutlet {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
