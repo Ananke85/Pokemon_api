@@ -91,28 +91,21 @@
 }
 
 /* Media query for responsiveness */
-@media screen and (max-width: 65em) {
+@media screen and (max-width: 2000px) {
   .pageOutlet {
-    display: grid;
     grid-template-columns: 1fr;
     gap: 2em;
     align-items: center;
     /* display: block; */
   }
-}
-
-/* Nested CSS Grid for each item */
-.item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2em;
-}
-
-/* Media query to adjust nested layout */
-@media screen and (max-width: 65em) {
   .item {
-    display: grid;
-    grid-template-columns: 1fr; /* Use single column layout for small screens */
+    grid-template-columns: 1fr;
     gap: 2em;
   }
+  .grid {
+    grid-template-columns: 1fr; 
+    justify-content: center;
+    gap: 2em;
+  }
+
 }

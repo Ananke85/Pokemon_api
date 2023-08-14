@@ -83,7 +83,7 @@
 }
 
 .videoListContainer {
-  width: 100%;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 2em;
@@ -131,23 +131,38 @@
   .title {
     grid-template-columns: 1fr;
   }
-
+  .title img {
+    width: 95%;
+  }
+  .quote h1 {
+    width: 80%;
+    text-align: center;
+  }
   .videoListContainer {
     grid-template-columns: 1fr;
+    justify-content: center;
+    padding-right: 3em;
+  }
+  .videoList li {
+    display: flex;
+    justify-content: center;
   }
   .valuesContainer {
     grid-template-columns: 1fr;
+    padding-right: 3em;
   }
-
+  .values {
+    padding-left: 12em;
+  }
   .skills {
     grid-template-columns: 1fr;
   }
-
   .skills img {
-    padding-left: 0;
+    padding-left: 5em;
   }
   .skills h3 {
     text-align: center;
     padding: 2vw;
+    padding-right: 2em;
   }
 }

@@ -133,6 +133,7 @@
 .relatedContainer {
   background-color: var(--blue-dark);
   background-color: var(--blue-medium);
+  max-width: 100%;
   height: 100%;
   padding: 2em 20em;
   padding-bottom: 5em;
@@ -192,7 +193,6 @@
   color: white;
 }
 
-
 /* CSS FOR THANKS */
 .thanks h3 {
   font-style: italic;
@@ -200,9 +200,18 @@
 }
 
 .thanks a {
-  color: var(--blue-light)
+  color: var(--blue-light);
 }
 
 .thanks a:hover {
-  color: var(--yellow-main)
+  color: var(--yellow-main);
+}
+
+@media screen and (max-width: 2000px) {
+  .relatedContainer {
+    grid-template-columns: 1fr;
+    gap: 2em;
+    justify-content: center;
+    padding: 3em 3em;
+  }
 }
