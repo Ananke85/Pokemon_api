@@ -56,6 +56,8 @@
   width: 45em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
 }
 
 .valuesContainer img {
