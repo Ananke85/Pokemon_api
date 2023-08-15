@@ -46,7 +46,7 @@ The loading of elements is controlled through an API call that uses a limit and 
   
   ![Screenshot](./Screenshots/items.jpg)
 
-* Regiones. Presented with a sidebar that displays different regions in the Pokémon world, allowing users to click and access information in an outlet on the right. An image and a brief description of the location are provided, along with a dropdown of various locations within the region and the Pokémon that can be found in each of them. Clicking on the Pokémon link enables users to navigate to its profile.
+* Regions. Presented with a sidebar that displays different regions in the Pokémon world, allowing users to click and access information in an outlet on the right. An image and a brief description of the location are provided, along with a dropdown of various locations within the region and the Pokémon that can be found in each of them. Clicking on the Pokémon link enables users to navigate to its profile.
 
  ![Screenshot](./Screenshots/regions.jpg)
  ![Screenshot](./Screenshots/locations.jpg)
