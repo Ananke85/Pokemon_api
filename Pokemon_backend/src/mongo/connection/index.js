@@ -1,4 +1,6 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
+
 let dbUrl = process.env.MONGO_URL;
 let mongodb;
 
@@ -7,7 +9,6 @@ exports.connectDB = async () => {
   try {
     await mongoose.connect(dbUrl);
     const mongo = mongoose.connection;
-    // console.log("MONGO:", process.env.MONGO_URL);
     mongo.on("error", (error) => console.error(error));
   } catch (e) {
     console.log(e);
@@ -24,3 +25,4 @@ exports.disconnectDB = async () => {
     console.log(err);
   }
 };
+

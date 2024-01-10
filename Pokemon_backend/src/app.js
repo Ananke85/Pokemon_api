@@ -2,11 +2,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
 const cors = require("cors");
+// const corsOptions = {
+//   origin: "http://localhost:5173", 
+//   optionsSuccessStatus: 200,
+// };
 const blogRouter = require("./mongo/router/blogRouter");
 const { connectDB } = require("./mongo/connection");
 
 const app = express();
-app.use(cors());
+// app.use(cors(corsOptions));
+app.use(cors())
 app.use(express.json());
 app.use("/pokenews", blogRouter);
 
