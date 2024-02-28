@@ -35,7 +35,7 @@ const RelatedPosts = () => {
   return (
     <>
       <div className={styles.relatedContainer}>
-        <h1>Related PokéNews</h1>
+        <h4>Related PokéNews</h4>
         <div className={styles.container}>
           <button
             onClick={handlePrevious}
@@ -56,7 +56,7 @@ const RelatedPosts = () => {
                       post.title.toLowerCase().replace(/\s+/g, "-")
                     )}`}
                   >
-                    <h3>{post.title}</h3>
+                    <p>{post.title}</p>
                   </Link>
                 </div>
               ))}

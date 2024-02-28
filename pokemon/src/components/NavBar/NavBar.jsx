@@ -23,7 +23,6 @@ const NavBar = () => {
             <Link to={ABOUT}>ABOUT</Link>
             <Link to={BLOG}>POKÉNEWS</Link>
             <AudioPlayer />
-
           </div>
         </div>
       </div>

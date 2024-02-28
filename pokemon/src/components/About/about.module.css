@@ -1,87 +1,78 @@
 .about {
-  padding: 8vw 0 0 4vw;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+.content {
+  padding: 6rem 4rem 0 4rem;
 }
 
 .title {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 4em;
-}
-
-.text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.text h1 {
-  font-size: 8em;
-  line-height: 1em;
-}
-
-.text h2 {
-  color: var(--blue-medium);
+  padding-top: 2rem;
+  gap: 1rem;
 }
 
 .title img {
+  display: block;
   max-width: 100%;
-  border-radius: 2em;
+  height: auto;
+  border-radius: 1em;
   box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.2);
 }
-
-.quote {
-  background-color: var(--yellow-main);
-  color: white;
-  padding-left: 8em;
-  width: 100vw;
-  position: relative;
-  left: -4vw;
+.title h4 {
+  color: var(--blue-medium);
+  padding-right: 10rem;
+  line-height: 2.5rem;
 }
 
-.quote h1 {
-  width: 65%;
-  line-height: 1.5em;
+.quote,
+.seasons {
+  background-color: var(--yellow-main);
+  color: var(--grey);
+  margin-left: -4rem;
+  width: 110%;
+}
+
+.quote h3 {
+  width: 50%;
+  padding-right: 10rem;
+  text-align: center;
+  padding: 1rem 0;
+  padding-left: 25vw;
 }
 
 .valuesContainer {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 6rem;
+  align-items: center;
 }
 
-.values {
-  width: 45em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
+.values h6 {
+  padding: 0.5rem 0;
 }
 
 .valuesContainer img {
-  max-width: 100%;
+  display: block;
+  width: 100%;
   border-radius: 2em;
   box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.values h1 {
+.values h6 {
   background-color: var(--blue-medium);
-  color: white;
+  color: var(--grey);
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   border-radius: 3em;
+  font-weight: bold;
 }
 
-.seasons {
-  background-color: var(--yellow-main);
-  color: white;
-  padding-left: 8em;
-  width: 100vw;
-  position: relative;
-  left: -4vw;
+.seasons h3 {
+  padding: 0.5rem 0;
+  padding-left: 33.5vw;
 }
 
 .videoListContainer {
@@ -91,34 +82,31 @@
   gap: 2em;
 }
 
-.videoList li {
-  font-size: 1.8em;
-}
-
 .video {
   width: 100%;
   border: 0;
-  margin-bottom: 4em;
 }
 
 .skills {
   display: grid;
-  grid-template-columns: 2fr 1.5fr;
+  grid-template-columns: 1fr 1.5fr;
   align-items: end;
-  /* background-image: linear-gradient(to top left, var(--blue-dark), white); */
   background-image: linear-gradient(to left, var(--blue-dark), white);
+  width: 110%;
+  margin-left: -4rem;
+  padding: 0.5rem 4rem;
 }
 
 .skills img {
-  padding-left: 20em;
+  display: block;
+  width: 60%;
 }
 
-.skills h3 {
+.skills h5 {
   text-align: right;
-  color: white;
-  padding-right: 4vw;
-  padding-bottom: 2vw;
+  color: var(--grey);
   word-wrap: break-word;
+  margin-right: 9rem;
 }
 
 .skills a {
@@ -128,43 +116,99 @@
   color: var(--yellow-main);
 }
 
-/* Media query for smaller screens */
-@media (max-width: 2000px) {
+
+@media screen and (min-width: 320px ) and (max-width: 480px) {
+  .content {
+    padding: 10rem 2rem 0 2rem;
+  }
   .title {
-    grid-template-columns: 1fr;
-  }
-  .title img {
-    width: 95%;
-  }
-  .quote h1 {
-    width: 80%;
-    text-align: center;
-  }
-  .videoListContainer {
-    grid-template-columns: 1fr;
-    justify-content: center;
-    padding-right: 3em;
-  }
-  .videoList li {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+  .title h4 {
+    padding-right: 0;
+    line-height: 1.5rem;
+  }
+  .quote, .seasons {
+    width: 135%;
+  }
+  .quote h3 {
+    width: 80%;
+    margin-left: -11vw;
+  }
+  .seasons h3 {
+    width: 60%;
+    margin-left: -8vw;
+    text-align: center;
   }
   .valuesContainer {
     grid-template-columns: 1fr;
-    padding-right: 3em;
+    gap: 1rem
   }
-  .values {
-    padding-left: 12em;
+  .videoListContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .videoListContainer .video {
+    grid-column: span 2;
+    width: 100%;
+    order: -1
   }
   .skills {
     grid-template-columns: 1fr;
+    width: 100%;
+    justify-items: center;
+  }
+  .skills h5{
+    margin-right: 0;
+    text-align: center;
+    
+  }
+}
+
+@media screen and (min-width: 481px ) and (max-width: 1024px) {
+  .content {
+    padding: 8rem 3rem 0 3rem;
+  }
+  .title  {
+    align-items: center;
+  }
+  .title h4 {
+    padding-right: 0;
+    line-height: 1.5rem;
+  }
+  .quote, .seasons {
+    width: 120%;
+  }
+  .quote h3 {
+    width: 80%;
+    margin-left: -17vw;
+  }
+  .seasons h3 {
+    width: 60%;
+    margin-left: -8vw;
+    text-align: center;
+  }
+ 
+  .videoListContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    justify-items: center;
+  }
+  .videoListContainer .video {
+    grid-column: span 2;
+    width: 70%;
+    order: -1
+  }
+  .skills {
+    width: 100%;
+  }
+  .skills h5{
+    margin-right: 0;
   }
   .skills img {
-    padding-left: 5em;
-  }
-  .skills h3 {
-    text-align: center;
-    padding: 2vw;
-    padding-right: 2em;
+    width: 80%;
   }
 }

@@ -7,10 +7,24 @@ import Spinner from "../../Spinner/Spinner";
 
 const Pokemons = () => {
   const { data, isLoading } = useQuery(["pokes"], getAllPokemons);
-  const limit = 13;
+  const limit = 11;
   const [offset, setOffset] = useState(0);
   const [pokeList, setPokeList] = useState([]);
-  const isScreenLessThan1040px = window.innerWidth < 1040;
+  const mobDimension = 376;
+  const [mobileScreen, setMobileScreen] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setMobileScreen(window.innerWidth <= mobDimension);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [mobDimension]);
 
   useEffect(() => {
     getAllPokemons(offset, limit)
@@ -38,14 +52,15 @@ const Pokemons = () => {
       {!isLoading && (
         <>
           <div className={styles.description}>
-            <h4>
+            <h1>Pokémons</h1>
+            <p>
               Pokémon are the creatures that inhabit the world of the Pokémon
               games. They can be caught using Pokéballs and trained by battling
               with other Pokémon. Each Pokémon belongs to a specific species but
               may take on a variant which makes it differ from other Pokémon of
               the same species, such as base stats, available abilities and
               typings.{" "}
-            </h4>
+            </p>
           </div>
 
           <div className={styles.pageOutlet}>
@@ -53,15 +68,12 @@ const Pokemons = () => {
               {pokeList &&
                 pokeList.map((pokemon, id) => (
                   <div key={id}>
-                    <Link
-                      to={`/pokemons/pokemon/${pokemon.name}`}
-                      className={styles.element}
-                    >
+                    <Link to={`/pokemons/pokemon/${pokemon.name}`}>
                       {pokemon.name}
                     </Link>
-                    {isScreenLessThan1040px &&
+                    {/* {isMobile &&
                       location.pathname ===
-                        `/pokemons/pokemon/${pokemon.name}` && <Outlet />}
+                        `/pokemons/pokemon/${pokemon.name}` && <Outlet />} */}
                   </div>
                 ))}
               <div className={styles.loadingButtons}>
@@ -73,7 +85,8 @@ const Pokemons = () => {
                 )}
               </div>
             </div>
-            {!isScreenLessThan1040px && <Outlet />}
+            <Outlet />
+            {mobileScreen && <button onClick={scrollToTop}>Back to Top</button>}
           </div>
         </>
       )}

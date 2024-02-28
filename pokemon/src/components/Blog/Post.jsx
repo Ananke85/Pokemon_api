@@ -9,7 +9,7 @@ const Post = () => {
   const { id } = useParams();
   const { data, isLoading } = useQuery(["blogpost", id], getPostById);
   const specialFeatures = data && data.special_features;
-
+console.log("special", specialFeatures)
   const formatDate = (date) => {
     if (data && data.date) {
       const dateObj = new Date(date);
@@ -52,41 +52,48 @@ const Post = () => {
       {!isLoading && (
         <>
           {data && (
-            <div className={styles.post}>
-              <div className={styles.title}>
-                <h1>{data.title}</h1>
-                <h3>{formatDate(data.date)}</h3>
-                <img src={data.image}></img>
-              </div>
+            <div className={styles.postContainer}>
+              <div className={styles.post}>
+                <div className={styles.title}>
+                  <h2>{data.title}</h2>
+                  <p>{formatDate(data.date)}</p>
+                  <img src={data.image} alt="Post Image" />
+                </div>
 
-              <h2>{data.intro}</h2>
+                <h4>{data.intro}</h4>
 
-              {paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-
-              {specialFeatures &&
-                specialFeatures.map((feature) => (
-                  <div key={feature.title}>
-                    <div className={styles.features}>
-                      <h2>{feature.title}</h2>
-                      {feature.image && <img src={feature.image}></img>}
-
-                      <p>{feature.text}</p>
-                    </div>
-                  </div>
+                {paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
                 ))}
-              {data.conclusion && <h2>{data.conclusion}</h2>}
-              <h3 className={styles.signature}>{data.signature}</h3>
-              <div className={styles.thanks}>
-                <h3>
-                  Special thanks to
-                  <a href="https://www.pokemon.com/us" target="blank">
-                    {" "}
-                    pokemon.com{" "}
-                  </a>
-                  for providing this Pokénew
-                </h3>
+
+                {specialFeatures &&
+                  specialFeatures.map((feature) => (
+                    <div key={feature._id} className={styles.features}>
+                      <h5>{feature.title}</h5>
+                      {feature.image && (
+                        <div className={styles.picColumn}>
+                          <img src={feature.image} alt="Feature Image" />
+                          <p>{feature.text}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+
+                {data.conclusion && <p>{data.conclusion}</p>}
+                <p className={styles.signature}>{data.signature}</p>
+                <div className={styles.thanks}>
+                  <p>
+                    Special thanks to{" "}
+                    <a
+                      href="https://www.pokemon.com/us"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      pokemon.com
+                    </a>{" "}
+                    for providing this Pokénew
+                  </p>
+                </div>
               </div>
             </div>
           )}

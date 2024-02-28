@@ -1,14 +1,9 @@
 .themeSong > button {
   display: flex;
   align-items: center;
-  gap: 1em
-}
-
-
-.themeSong span {
-  font-size: 1.2em;
+  gap: 0.5rem;
 }
 
 .pause {
-background-color: var(--blue-dark);
+  background-color: var(--blue-dark);
 }

@@ -17,34 +17,31 @@ const PokemonStats = () => {
   return (
     <>
       <div className={styles.statsContainer}>
-        <h3>
+        
           {randomNumber && (
             <div className={styles.stats}>
               <div>Attack</div> <div> {randomNumber.attack}</div>
             </div>
           )}
-        </h3>
-        <h3>
+        
           {randomNumber && (
             <div className={styles.stats}>
               <div>Defense</div> <div> {randomNumber.defense}</div>
             </div>
           )}
-        </h3>
-        <h3>
+        
           {randomNumber && (
             <div className={styles.stats}>
               <div>Power</div> <div> {randomNumber.power}</div>
             </div>
           )}
-        </h3>
-        <h3>
+        
           {randomNumber && (
             <div className={styles.stats}>
               <div>Speed</div> <div> {randomNumber.speed}</div>
             </div>
           )}
-        </h3>
+       
       </div>
     </>
   );

@@ -1,51 +1,45 @@
 .navBar {
   width: 100%;
-  /* height: 7em; */
-  display: flex;
-  align-items: center;
+  max-width: 100%;
   background-color: var(--blue-dark);
-  padding: 0.2em;
-  border-bottom: solid var(--blue-light) 1em;
+  border-bottom: solid var(--blue-light) 5px;
   position: fixed;
   top: 0;
   z-index: 10;
-  gap: 2em;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Add a shadow to the bottom */
-
 }
 
 .content {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  max-width: 100%;
-  margin: 0 auto;
-  gap: 3em;
+  gap: 3rem;
 }
 
-.logo {
-  width: 13em;
-  /* position: relative;
-  left: -6em; */
+.content img {
+  width: 8rem;
+  margin-left: 4rem;
+  padding: 0.5rem 0;
 }
 
 .links {
+  margin-right: 2rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 3em;
+  gap: 2rem;
 }
 
 .links a {
   text-decoration: none;
-  color: white;
+  color: var(--grey);
   background-color: var(--blue-light);
-  border-radius: 2em;
-  padding: 0.5em;
-  width: 9em;
+  border-radius: 1rem;
+  padding: 0.2rem 0.5rem;
+  width: 9rem;
   display: flex;
   justify-content: center;
-  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -55,15 +49,14 @@
 
 .search {
   width: 100%;
-  max-width: 15em;
-  /* border: 0.2rem solid var(--yellow-main); */
-  border-radius: 4em;
-  padding: 0.7em 1em;
+  max-width: 15rem;
+  border-radius: 4rem;
+  padding: 0.7rem 1rem;
   background-color: var(--blue-medium);
   color: white;
 }
 .searchBar > h6 {
-  padding-left: 2em;
+  padding-left: 2rem;
 }
 
 .searchBar {
@@ -76,38 +69,41 @@
   position: relative;
 }
 
-
 /* Media queries for responsiveness */
-@media screen and (max-width: 75em) {
-  .navBar {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 0.5em;
-  }
 
+@media screen and (min-width: 320px)and  (max-width: 480px) {
   .content {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5em;
+    flex-direction: column;
+    row-gap: 0.7rem;
+    margin-left: 0;
   }
-
+  .content img {
+    margin-left: 0;
+  }
   .links {
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 1em;
-  }
-
-  .links a {
-    margin: 0.5em 0;
-  }
-
-  .searchBar {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    gap: 1rem;
+    row-gap: 0.7rem;
+    margin-bottom: 1rem;
+    margin-right: 0;
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .content img {
+    margin-left: 2rem;
+  }
+  .content {
+    flex-direction: column;
+    row-gap: 0.7rem;
+    margin-left: 0;
+    gap: 0
+  }
 
+  .links {
+    gap: 1rem;
+    row-gap: 0.7rem;
+    margin: 1rem 0;
+    justify-content: center;
+  }
+}

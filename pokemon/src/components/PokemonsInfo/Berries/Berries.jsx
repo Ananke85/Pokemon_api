@@ -36,13 +36,14 @@ const Berries = () => {
         <>
           <div className={styles.pageContainer}>
             <div className={styles.description}>
-              <h4>
+              <h1>Berries</h1>
+              <p>
                 Berries are small fruits that with a large range of flavors and
                 effects. First found in the Generation II games, many Berries
                 have since become critical held items in battle, where their
                 various effects include HP and status condition restoration,
                 stat enhancement, and even damage negation.
-              </h4>
+              </p>
             </div>
             <div className={styles.grid}>
               {names &&

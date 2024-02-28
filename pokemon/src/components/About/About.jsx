@@ -13,46 +13,42 @@ const About = () => {
   return (
     <>
       {isLoading && <Spinner />}
-
-      <div className={styles.about}>
-        {!isLoading && (
-          <>
+      {!isLoading && (
+        <div className={styles.about}>
+          <div className={styles.content}>
             <div className={styles.title}>
-              <div className={styles.text}>
-                <h1>Pokémon: Beyond a game, a worlwide community</h1>
-                <h2>
+              <div>
+                <h1>Pokémon: Beyond a game, a worldwide community</h1>
+                <h4>
                   The world of Pokémon connects people across the globe, beloved
                   by kids, adults, and every Trainer in between! These
                   incredible creatures have crossed borders and language
                   barriers to reach the hearts of millions for over 25 years,
                   bringing people together through the joy of play and
                   discovery.
-                </h2>
+                </h4>
               </div>
-              <img src={community}></img>
+              <img src={community} alt="Community"></img>
             </div>
 
             <div className={styles.quote}>
-              <h1>
-                {
-                  "Pokémon was launched in Japan in 1996 and today is one of the most popular children's entertainment properties in the world."
-                }{" "}
-              </h1>
+              <h3>
+                Pokémon was launched in Japan in 1996 and today is one of the
+                most popular children entertainment properties in the world.
+              </h3>
             </div>
             <div className={styles.valuesContainer}>
-              <img src={pokemon}></img>
+              <img src={pokemon} alt="Pokemon"></img>
               <div className={styles.values}>
-                <h1>Integrity</h1>
-                <h1>Honesty</h1>
-                <h1>Responsability</h1>
-                <h1>Professionalism</h1>
+                <h6>Integrity</h6>
+                <h6>Honesty</h6>
+                <h6>Responsibility</h6>
+                <h6>Professionalism</h6>
               </div>
             </div>
-
             <div className={styles.seasons}>
-              <h1>A journey through the intros from Season 1 to 25</h1>
+              <h3>A journey through the intros from Season 1 to 25</h3>
             </div>
-
             <div className={styles.videoListContainer}>
               <ul className={styles.videoList}>
                 <li>Season 1: Indigo League</li>
@@ -69,9 +65,7 @@ const About = () => {
                 <li>Season 12: Galactic Battles</li>
                 <li>Season 13: Sinnoh League Victors</li>
               </ul>
-
               <video className={styles.video} src={video} controls />
-
               <ul className={styles.videoList}>
                 <li>Season 14: Black & White</li>
                 <li>Season 15: Rival Destinies</li>
@@ -88,37 +82,35 @@ const About = () => {
               </ul>
             </div>
             <div className={styles.skills}>
-              <img src={pikachu} />
-              <h3>
-                I am Lorena Carmona, a MERN Full Stack Developer. <br></br>This
-                website was crafted as a personal practice exercice, combining
-                JavaScript and CSS skills to shape the frontend, and MongoDB to
-                establish the PokéNews backend. The remaining data was fetched
-                from the{" "}
+              <img src={pikachu} alt="Pikachu" />
+              <h5>
+                I am Lorena Carmona, a MERN Full Stack Developer. <br />
+                This website was crafted as a personal practice exercise,
+                combining JavaScript and CSS skills to shape the frontend, and
+                MongoDB to establish the PokéNews backend. The remaining data
+                was fetched from the{" "}
                 <a
                   href="https://pokeapi.co/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
-                  PokéAPI website{" "}
-                </a>{" "}
-                . <br></br> If you want to see more of my work, please, do not
+                  PokéAPI website
+                </a>
+                . <br /> If you want to see more of my work, please, do not
                 hesitate to visit my{" "}
                 <a
                   href="https://github.com/Ananke85"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
-                  Github profile{" "}
+                  Github profile
                 </a>
                 .
-              </h3>
+              </h5>
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

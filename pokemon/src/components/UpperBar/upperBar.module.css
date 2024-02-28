@@ -3,19 +3,17 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 5em;
+  gap: 3rem;
 }
-
 .upperBar a {
   text-decoration: none;
-  color: white;
+  color: var(--grey);
   background-color: var(--blue-medium);
-  border-radius: 2em;
-  padding: 0.5em;
-  width: 9em;
+  border-radius: 2rem;
+  padding:0.2rem 0.5rem;
+  width: 9rem;
   display: flex;
   justify-content: center;
-  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -27,34 +25,38 @@
   background-color: var(--yellow-main);
 }
 
-
-/* Media queries for responsiveness */
-/* @media screen and (min-width: 75em) and (max-width: 95em) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   .upperBar {
-    margin-top: 0%; 
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: center;
+
   }
+  .upperBar a {
+    width: 7rem;
+
+  };
 }
 
-@media screen and (min-width: 50em) and (max-width: 75em) {
-  .upperBar {
-    margin-top: 22%; 
-  }
+@media screen and (min-width: 481px) and (max-width: 768px) {
+.upperBar {
+  flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 6rem;
+
+}
+.upperBar a {
+  width: 10rem;
+  flex-wrap: wrap;
+    row-gap: 1rem
+}
 }
 
-@media screen and (min-width: 35em) and (max-width: 50em) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .upperBar {
-    margin-top: 42%;
-  }
-}
-
-@media screen and (max-width: 35em) {
-  .upperBar {
-    margin-top: 97%; 
-  }
-} */
-
-@media screen and (max-width: 2000px) {
-  .upperBar {
-    margin-top: 3em; 
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    margin-top: 3.5rem
   }
 }

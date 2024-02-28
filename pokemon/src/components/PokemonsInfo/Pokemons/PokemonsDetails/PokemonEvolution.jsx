@@ -111,11 +111,11 @@ const PokemonEvolution = () => {
         <div>
           {pokemonEvolution.length > 0 && (
             <div className={styles.evolution}>
-              <h2 className={styles.evolutionTitle}>Evolutes to:</h2>
+              <h4>Evolutes to:</h4>
               <div className={styles.pokeEvolution}>
                 {pokemonEvolution.map((pokemon, index) => (
                   <div key={index}>
-                    <h3>{pokemon}</h3>
+                    <h5>{pokemon}</h5>
                     <Link to={`/pokemons/pokemon/${pokemon}`}>
                       {pokemon === secondPokemon && firstEvoImg && (
                         <img
@@ -145,23 +145,21 @@ const PokemonEvolution = () => {
           )}
 
           {pokemonEvolution.length === 0 && (
-            <div className={styles.evolution}>
               <div className={styles.topEvolution}>
-                <h1>TOP</h1>
+                <p>TOP</p>
                 <img src={pikachu} alt="Top Evolution" />
-                <h1>EVOLUTION</h1>
+                <p>EVOLUTION</p>
               </div>
-            </div>
           )}
         </div>
 
         {species && description ? (
           <div className={styles.description}>
             <div className={styles.descTitle}>
-              <h2>{data.species.name}</h2>
-              <h2 className={styles.inDetail}>in detail:</h2>
+              <h4>{data.species.name}</h4>
+              <h4 className={styles.inDetail}>in detail:</h4>
             </div>
-            <h5>
+            <p>
               {remove(description[0].flavor_text)}{" "}
               {remove(description[2].flavor_text)}
               {remove(description[3].flavor_text)} <br />
@@ -169,10 +167,10 @@ const PokemonEvolution = () => {
               {remove(description[8].flavor_text)}
               {remove(description[12].flavor_text)}{" "}
               {remove(description[28].flavor_text)}
-            </h5>
+            </p>
           </div>
         ) : (
-          <h4 className={styles.noDescription}>No description available</h4>
+          <h5 className={styles.noDescription}>No description available</h5>
         )}
       </div>
     </>

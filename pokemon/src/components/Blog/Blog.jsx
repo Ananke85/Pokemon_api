@@ -48,10 +48,10 @@ const Blog = () => {
               {posts &&
                 visiblePosts.map((post, index) => (
                   <div key={post._id} className={styles.blogCard}>
-                    <h2>{post.title}</h2>
-                    <h4>{formattedDates[index]}</h4>
+                    <h5>{post.title}</h5>
+                    <p>{formattedDates[index]}</p>
                     <img src={post.image}></img>
-                    <h3>{post.intro}</h3>
+                    <p className={styles.intro}>{post.intro}</p>
 
                     <Link
                       to={`/pokenews/${post._id}/${encodeURIComponent(

@@ -80,8 +80,7 @@ const PokemonDetails = () => {
     <>
       {data && (
         <div className={styles.outlet}>
-          <div className={styles.firstRow}>
-            {/* <div className={styles.buttonWrrapper}>
+          {/* <div className={styles.buttonWrrapper}>
               {index && index[0]?.name !== name && (
                 <span
                   onClick={handlePreviousCard}
@@ -90,75 +89,76 @@ const PokemonDetails = () => {
               )}
             </div> */}
 
-            <div className={styles.container}>
-              <div
-                className={`${styles.card} ${
-                  pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
-                }`}
-              >
-                <div className={styles.pokeName}>
-                  <h2>{data.species.name}</h2>
-                  <h2>{data.base_experience} HP</h2>
-                  {pokemonType && (
-                    <img
-                      className={styles.icon}
-                      src={getTypeIconPath(pokemonType)}
-                      alt={`${pokemonType} type`}
-                    />
-                  )}
-                </div>
-
+          <div className={styles.containerCard}>
+            <div
+              className={`${styles.card} ${
+                pokemonType ? styles[`Pokemon-${pokemonType}`] : ""
+              }`}
+            >
+              <div className={styles.pokeName}>
+                <h5>{data.species.name}</h5>
+                <h5>{data.base_experience} HP</h5>
+                {pokemonType && (
+                  <img
+                    className={styles.icon}
+                    src={getTypeIconPath(pokemonType)}
+                    alt={`${pokemonType} type`}
+                  />
+                )}
+              </div>
+              <div className={styles.backgroundImage}>
                 <img
                   className={styles.image}
                   src={data?.sprites?.other["official-artwork"].front_default}
                   alt={data.species.name}
                 />
-
-                <div className={styles.details}>
-                  <h4 className={styles.type}>{pokemonType} pokémon</h4>
-                  <h4>HT: {data.height} dm</h4>
-                  <h4>WT: {data.weight} hg</h4>
-                </div>
-
-                {primaryAbilityData && (
-                  <div className={styles.abilities}>
-                    <div className={styles.abDescription}>
-                      <h4>Primary ability:</h4>
-                      <h4 className={styles.abilityTitle}>{primaryAbility}</h4>
-                    </div>
-                    <div>
-                      {primaryAbilityData.effect_entries
-                        .filter((entry) => entry.language.name === "en")
-                        .map((entry, idx) => (
-                          <p key={idx}>{entry.short_effect}</p>
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {hiddenAbilityData && (
-                  <div className={styles.abilitiesHidden}>
-                    <div className={styles.abDescription}>
-                      <h4>Hidden ability:</h4>
-                      <h4 className={styles.abilityTitle}>{hiddenAbility}</h4>
-                    </div>
-                    <div>
-                      {hiddenAbilityData.effect_entries
-                        .filter((entry) => entry.language.name === "en")
-                        .map((entry, idx) => (
-                          <p key={idx}>{entry.short_effect}</p>
-                        ))}
-                    </div>
-                  </div>
-                )}
               </div>
-              <img src={backCard} className={styles.back} alt="Back Card" />
+
+              <div className={styles.details}>
+                <h6 className={styles.type}>{pokemonType} pokémon</h6>
+                <h6>HT: {data.height} dm</h6>
+                <h6>WT: {data.weight} hg</h6>
+              </div>
+
+              {primaryAbilityData && (
+                <div className={styles.abilities}>
+                  <div className={styles.abDescription}>
+                    <h6>Primary ability:</h6>
+                    <h6 className={styles.abilityTitle}>{primaryAbility}</h6>
+                  </div>
+                  <div className={styles.abDetails}>
+                    {primaryAbilityData.effect_entries
+                      .filter((entry) => entry.language.name === "en")
+                      .map((entry, idx) => (
+                        <p key={idx}>{entry.short_effect}</p>
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {hiddenAbilityData && (
+                <div className={styles.abilitiesHidden}>
+                  <div className={styles.abDescription}>
+                    <h6>Hidden ability:</h6>
+                    <h6 className={styles.abilityTitle}>{hiddenAbility}</h6>
+                  </div>
+                  <div className={styles.abDetails}>
+                    {hiddenAbilityData.effect_entries
+                      .filter((entry) => entry.language.name === "en")
+                      .map((entry, idx) => (
+                        <p key={idx}>{entry.short_effect}</p>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
-            <div>
-              {data && <PokemonEvolution />}
-              {data && <PokemonStats />}
-            </div>
-            {/* <div className={styles.buttonWrrapper}>
+            <img src={backCard} className={styles.back} alt="Back Card" />
+          </div>
+          <div className={styles.evoStats}>
+            {data && <PokemonEvolution />}
+            {data && <PokemonStats />}
+          </div>
+          {/* <div className={styles.buttonWrrapper}>
               {index && index[13]?.name !== name && (
                 // <button onClick={handleNextCard}><span className="icon-point-right"></span></button>
                 <span
@@ -167,8 +167,6 @@ const PokemonDetails = () => {
                 ></span>
               )}
             </div> */}
-          </div>
-
         </div>
       )}
     </>
@@ -176,4 +174,3 @@ const PokemonDetails = () => {
 };
 
 export default PokemonDetails;
-

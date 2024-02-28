@@ -159,7 +159,7 @@ const BerriesDetails = ({ berryName }) => {
           }`}
         >
           <div className={styles.titleDetails}>
-            <h1 className={styles.berryTitle}>{berryName} berry</h1>
+            <h3 className={styles.berryTitle}>{berryName} berry</h3>
             {berryImage && <img src={berryImage} alt={berries.name}></img>}
           </div>
 
@@ -181,7 +181,7 @@ const BerriesDetails = ({ berryName }) => {
 
           <div className={styles.flavorsGrid}>
             <div className={styles.dropdown}>
-              <h4>Flavors:</h4>
+              <h5>Flavors:</h5>
               <button
                 onClick={handleDropdown}
                 className={!isExpanded ? styles.arrow : styles.active}
@@ -193,13 +193,13 @@ const BerriesDetails = ({ berryName }) => {
             {isExpanded && (
               <div>
                 <div className={styles.flavors}>
-                  <h4>Name</h4>
-                  <h4>Potency</h4>
+                  <h6>Name</h6>
+                  <h6>Potency</h6>
                 </div>
                 {berries.flavors.map((flavor) => (
                   <div key={flavor.flavor.name} className={styles.flavors}>
-                    <div className={styles.content}>{flavor.flavor.name}</div>
-                    <div className={styles.content}>{flavor.potency}</div>
+                    <p>{flavor.flavor.name}</p>
+                    <p>{flavor.potency}</p>
                   </div>
                 ))}
               </div>
@@ -212,32 +212,3 @@ const BerriesDetails = ({ berryName }) => {
 };
 
 export default BerriesDetails;
-
-{
-  /* <div className={styles.detailsGrid}>
-            <h3>Size:</h3>
-            <h3>{berries.size} mm</h3>
-
-            <h3>Smoothness:</h3>
-            <h3>{berries.smoothness}</h3>
-
-            <h3>Firmness:</h3>
-            <h3>{berries.firmness.name}</h3>
-
-            <h3>Soil Dryness:</h3>
-            <h3>{berries.soil_dryness}</h3>
-
-            <h3>Max Harvest:</h3>
-            <h3>{berries.max_harvest}</h3>
-
-            <h3>Growth Time:</h3>
-            <h3>{berries.growth_time} h</h3>
-
-            <h3>Gift Power:</h3>
-            <h3>{berries.natural_gift_power}</h3>
-
-            <h3>Gift Type:</h3>
-            <h3>{berries.natural_gift_type.name}</h3>
-
-          </div> */
-}

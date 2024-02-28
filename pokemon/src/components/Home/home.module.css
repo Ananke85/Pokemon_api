@@ -1,23 +1,25 @@
 .homePage {
-  padding: 15em 0 0 0;
+  padding-top: 5rem;
   width: 100vw;
   height: 100vh;
   background-image: url("C:\Users\anank\Documents\Ananke85\Pokemon_api\pokemon\src\assets\pokemon_wallpaper.jpg");
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: 100%;
   background-position: center;
-  overflow: hidden;
   position: fixed;
-  top: -10em;
-  left: 0;
-  
+  top: -5rem;
 }
 @keyframes fadeInBackground {
   0% {
     background-color: rgba(179, 179, 179, 0); /* Start with 0% opacity */
   }
   100% {
-    background-color: rgba(179, 179, 179, 0.4); /* Reach the desired opacity (e.g., 0.3) */
+    background-color: rgba(
+      179,
+      179,
+      179,
+      0.4
+    ); /* Reach the desired opacity (e.g., 0.3) */
     backdrop-filter: blur(2px);
   }
 }
@@ -36,23 +38,23 @@
 }
 
 .content {
-  padding: 10em 10em 0 10em;
+  padding: 10rem 10rem 0 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70vh;
+  height: 50vh;
 }
 
 .content h1 {
   text-transform: uppercase;
-  font-size: 6em;
+  /* font-size: 6rem; */
   color: var(--yellow-main);
 }
 
 .content img {
   position: fixed;
-  bottom: 0em;
-  height: 70em;
+  bottom: 0;
+  height: 75vh;
   left: 50vw;
   opacity: 0;
   transform: translateX(-50%);
@@ -66,15 +68,45 @@
   opacity: 1;
 }
 
-
-
 .pokemonsDetails h2 {
-text-transform: uppercase;
-background-color: var(--blue-dark);
-color: white;
-width: 8em;
-border-radius: 2em;
-padding: 0 2em;
-display: flex;
-justify-content: center;
+  text-transform: uppercase;
+  background-color: var(--blue-dark);
+  color: white;
+  width: 8rem;
+  border-radius: 2rem;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .homePage {
+    background-size: cover;
+    padding-top: 2rem;
+    top: -2rem;
+  }
+  .content img {
+    height: 60vh;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .content img {
+    height: 65vh;
+  }
+  .homePage {
+    background-size: cover;
+    padding-top: 5rem;
+    top: -3rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1100px) {
+  .homePage {
+    background-size: cover;
+    padding-top: 3rem;
+    top: -1rem;
+  }
+  .content img {
+    height: 75vh;
+  }
 }
