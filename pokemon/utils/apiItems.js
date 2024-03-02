@@ -10,9 +10,9 @@ export const getAllItems = (offset, limit) => {
     });
 };
 
-export const getItemsByName = (name) => {
+export const getItemsByName = (itemName) => {
   return api
-    .get(`/item/${name}`)
+    .get(`/item/${itemName}`)
     .then((res) => res.data)
     .catch((error) => {
       console.log(error);

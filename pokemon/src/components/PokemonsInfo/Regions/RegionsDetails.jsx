@@ -19,17 +19,19 @@ const RegionDetails = () => {
   const { data: regions } = useQuery(["regions", name], () =>
     getRegionByName(name)
   );
-  console.log("las regiones", regions);
   const limit = 12;
-  const [offset, setOffset] = useState(0)
+  const [offset, setOffset] = useState(0);
   const [, setShowLocations] = useState([]);
-  
+
   useEffect(() => {
-    if(regions) {
-      setShowLocations((prevShowLocations) => [...prevShowLocations, ...regions.locations])
+    if (regions) {
+      setShowLocations((prevShowLocations) => [
+        ...prevShowLocations,
+        ...regions.locations,
+      ]);
     }
-  }, [regions, offset])
-  
+  }, [regions, offset]);
+
   const handleShowMore = () => {
     setOffset((prevOffset) => prevOffset + limit);
   };
@@ -77,24 +79,52 @@ const RegionDetails = () => {
     setIsExpanded(!isExpanded);
   };
 
+  const mobDimension = 376;
+  const tabDimension = 768;
+
+  const [screenSize, setScreenSize] = useState("desktop");
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const width = window.innerWidth;
+      if (width <= mobDimension) {
+        setScreenSize("mobile");
+      } else if (width <= tabDimension) {
+        setScreenSize("tablet");
+      } else {
+        setScreenSize("desktop");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       {regions && (
         <div className={styles.regionOutlet}>
           <div className={styles.regionTitle}>
             <h2>{regions.name} was introduced in</h2>
-            {regions.main_generation && <h2>{regions.main_generation.name}</h2>}
+            {regions.main_generation && (
+              <h2 className={styles.title2}>{regions.main_generation.name}</h2>
+            )}
           </div>
 
           <div className={styles.regionDescription}>
             {regionImage && <img src={regionImage} alt={name} />}
-            <h4>{regionDescription}</h4>
+            <p>{regionDescription}</p>
           </div>
 
           {regions.locations.length > 0 ? (
             <div className={styles.locations}>
               <div className={styles.dropdown}>
-                <h1>Locations</h1>
+                <h3>Locations</h3>
                 <button
                   onClick={handleDropdown}
                   className={!isExpanded ? styles.arrow : styles.active}
@@ -105,12 +135,14 @@ const RegionDetails = () => {
 
               {isExpanded && (
                 <div className={styles.locationsContainer}>
-                  {regions.locations.slice(offset, offset + limit).map((region) => (
-                    <div key={region.id} className={styles.locationCard}>
-                      <h2>{region.name}</h2>
-                      <LocationsDetails name={region.name} />
-                    </div>
-                  ))}
+                  {regions.locations
+                    .slice(offset, offset + limit)
+                    .map((region) => (
+                      <div key={region.id} className={styles.locationCard}>
+                        <h5>{region.name}</h5>
+                        <LocationsDetails name={region.name} />
+                      </div>
+                    ))}
                   <div className={styles.buttonsContainer}>
                     {regions && (
                       <div className={styles.loadingButtonsRegions}>
@@ -125,9 +157,15 @@ const RegionDetails = () => {
                   </div>
                 </div>
               )}
+              {isExpanded &&
+                (screenSize === "mobile" || screenSize === "tablet") && (
+                  <button onClick={scrollToTop} className={styles.scrollButton}>
+                    Back to Top
+                  </button>
+                )}
             </div>
           ) : (
-            <h2>No locations to display</h2>
+            <h4>No locations to display</h4>
           )}
         </div>
       )}

@@ -15,7 +15,6 @@ import {
   BLOGPOST,
   HOME,
   ITEMS,
-  LOCATIONS,
   LOCATIONS_DETAILS,
   POKEMONS,
   POKEMON_DETAILS,
@@ -25,7 +24,6 @@ import {
 } from "./route-paths";
 import PokemonDetails from "./components/PokemonsInfo/Pokemons/PokemonsDetails/PokemonDetails";
 import { PokemonProvider } from "./context/PokemonContext";
-import Locations from "./components/PokemonsInfo/Locations/Locations";
 import LocationsDetails from "./components/PokemonsInfo/Locations/LocationsDetails";
 import Regions from "./components/PokemonsInfo/Regions/Regions";
 import RegionDetails from "./components/PokemonsInfo/Regions/RegionsDetails";
@@ -55,12 +53,11 @@ function App() {
               <Route path={REGIONS} element={<Regions />}>
                 <Route path={REGIONS_DETAILS} element={<RegionDetails />} />
               </Route>
-              <Route path={LOCATIONS} element={<Locations />}>
-                <Route
+            
+              <Route
                   path={LOCATIONS_DETAILS}
                   element={<LocationsDetails />}
                 />
-              </Route>
               <Route path={ITEMS} element={<Items />}></Route>
             </Route>
           </Routes>

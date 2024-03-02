@@ -1,43 +1,22 @@
 .pokeList {
-  font-size: 1.4em;
+  font-size: 0.8rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   align-items: center;
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   text-transform: capitalize;
   background-color: var(--grey);
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 }
 
 .pokeList li {
   color: var(--blue-dark);
   position: relative;
-  left: 1em;
-  top: 0.5em;
+  left: 0.5rem;
+  top: 0.5rem;
 }
 
 .pokeList li:hover {
   color: var(--yellow-main);
-}
-
-.dropdown {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dropdown button {
-  width: fit-content;
-  background-color: transparent;
-}
-.dropdown span {
-  font-size: 1.8em;
-}
-.dropdown span:hover {
-  color: var(--yellow-main);
-}
-
-.detailsList {
-  min-height: 12em;
 }

@@ -7,7 +7,6 @@ export const BLOGPOST = "/pokenews/:id/:title"
 
 export const POKEMONS = "/pokemons/pokemon"
 export const BERRIES = "/pokemons/berries"
-export const LOCATIONS = "/pokemons/locations"
 export const REGIONS = "/pokemons/regions"
 export const ITEMS = "/pokemons/items"
 

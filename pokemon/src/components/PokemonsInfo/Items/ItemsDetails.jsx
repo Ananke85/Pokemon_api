@@ -1,76 +1,49 @@
 import { useQuery } from "react-query";
 import styles from "./items.module.css";
 import { getItemsByName } from "../../../../utils/apiItems";
-import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const ItemDetails = ({ name }) => {
+const ItemDetails = ({ itemName }) => {
   // eslint-disable-next-line react/prop-types
   const nameWithoutHyphen =
     // eslint-disable-next-line react/prop-types
-    typeof name === "string" ? name.replace(/-/g, " ") : name;
+    typeof itemName === "string" ? itemName.replace(/-/g, " ") : itemName;
 
-  const { data } = useQuery(["item-details", name], () => getItemsByName(name));
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleDropdown = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const { data } = useQuery(["item-details", itemName], () =>
+    getItemsByName(itemName)
+  );
 
   return (
     <>
       {data && (
         <div className={styles.itemCard}>
           <div className={styles.titleDetails}>
-            <h1 className={styles.itemTitle}>{nameWithoutHyphen}</h1>
-            <div className={styles.image}>
-              <h2>G. Id: {data.game_indices[0].game_index}</h2>
-              <img src={data.sprites.default}></img>
+            <h3 className={styles.itemTitle}>{nameWithoutHyphen}</h3>
+            <div className={styles.imageContainer}>
+              <h3>G. Id: {data.game_indices[0].game_index}</h3>
+              <img src={data.sprites.default} alt={nameWithoutHyphen}></img>
             </div>
           </div>
 
-          <h3 className={styles.nonCapi}>
+          <p className={styles.nonCapi}>
             {data.flavor_text_entries[0].language === "en"
               ? `${data.flavor_text_entries[0].text} Its category is ${data.category.name}.`
               : `${data.flavor_text_entries[3].text} Its category is ${data.category.name}.`}
-          </h3>
+          </p>
 
-          <h4 className={styles.nonCapi}>{data.effect_entries[0].effect}</h4>
+          <p className={styles.nonCapi}>{data.effect_entries[0].effect}</p>
 
           <div className={styles.grid}>
-            <h4>Cost: {data.cost}</h4>
-            {data.fling_effect !== null ? (
-              <h4>Fling Effect: {data.fling_effect}</h4>
-            ) : (
-              <h4>Fling Effect: None</h4>
-            )}
-
-            {data.fling_power !== null ? (
-              <h4>Fling Power: {data.fling_power}</h4>
-            ) : (
-              <h4>Fling Power: None</h4>
-            )}
+            <p>Cost: {data.cost}</p>
+            <p>Fling Effect: {data.fling_effect ?? "None"}</p>
+            <p>Fling Power: {data.fling_power ?? "None"}</p>
           </div>
 
-          <div className={styles.dropdown}>
-            <h3>Attributes:</h3>
-            <button
-              onClick={handleDropdown}
-              className={!isExpanded ? styles.arrow : styles.active}
-            >
-              <span className="icon-circle-down"></span>
-            </button>
+          <div className={styles.attributeContainer}>
+            {data.attributes.map((attribute) => (
+              <p key={attribute.name}>{attribute.name}</p>
+            ))}
           </div>
-          {isExpanded && (
-            <div className={styles.attributeContainer}>
-              {data.attributes.map((attribute) => (
-                <h4 key={attribute.name} className={styles.attribute}>
-                  {" "}
-                  {attribute.name}
-                </h4>
-              ))}
-            </div>
-          )}
         </div>
       )}
     </>

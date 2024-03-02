@@ -84,9 +84,9 @@ const About = () => {
             <div className={styles.skills}>
               <img src={pikachu} alt="Pikachu" />
               <h5>
-                I am Lorena Carmona, a MERN Full Stack Developer. <br />
+                I am Lorena Carmona, MERN Full Stack Developer. <br />
                 This website was crafted as a personal practice exercise,
-                combining JavaScript and CSS skills to shape the frontend, and
+                combining React and CSS skills to shape the frontend, and
                 MongoDB to establish the PokéNews backend. The remaining data
                 was fetched from the{" "}
                 <a

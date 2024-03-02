@@ -110,6 +110,9 @@
   .pageOutlet button {
     align-self: center;
   }
+  .itemsContainer {
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
@@ -122,6 +125,9 @@
   .list a {
     padding-left: 0.5rem;
     font-size: 0.8rem;
+  }
+  .itemsContainer {
+    justify-content: center;
   }
 }
 
@@ -138,3 +144,4 @@
     justify-content: center;
   }
 }
+

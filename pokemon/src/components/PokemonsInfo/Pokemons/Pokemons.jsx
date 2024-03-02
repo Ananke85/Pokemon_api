@@ -71,9 +71,6 @@ const Pokemons = () => {
                     <Link to={`/pokemons/pokemon/${pokemon.name}`}>
                       {pokemon.name}
                     </Link>
-                    {/* {isMobile &&
-                      location.pathname ===
-                        `/pokemons/pokemon/${pokemon.name}` && <Outlet />} */}
                   </div>
                 ))}
               <div className={styles.loadingButtons}>

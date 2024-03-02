@@ -14,6 +14,7 @@ const Items = () => {
     getAllItems(offset, limit)
   );
 
+  console.log("los tiems", items)
   const itemNames = items && items.results?.map((item) => item.name);
 
   useEffect(() => {
@@ -37,17 +38,18 @@ const Items = () => {
         <>
           <div className={styles.pageContainer}>
             <div className={styles.description}>
-              <h4>
+              <h1>Items</h1>
+              <p>
                 An item is an object in the games which the player can pick up,
                 keep in their bag, and use in some manner. They have various
                 uses, including healing, powering up, helping catch Pokémon, or
                 to access a new area.
-              </h4>
+              </p>
             </div>
 
             <div className={styles.itemsContainer}>
               {itemNames &&
-                itemNames.map((name) => <ItemDetails key={name} name={name} />)}
+                itemNames.map((name, index) => <ItemDetails key={index} itemName={name} />)}
             </div>
           </div>
 

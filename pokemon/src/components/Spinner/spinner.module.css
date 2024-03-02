@@ -6,46 +6,52 @@
   justify-content: center;
 }
 
-
 .pokeball {
-  height: 30em;
-  width: 30em;
-  border: 2em solid #383b4f;
-  border-radius:  50%;
-background-image: linear-gradient(
-  #f51939 15em,
-  white 15em
-);
-position: relative;
-animation: load 2s infinite;
+  height: 10rem;
+  width: 10rem;
+  border: 10px solid #383b4f; /* Adjust border thickness proportionally */
+  border-radius: 50%;
+  background-image: linear-gradient(
+    #f51939 50%,
+    white 50%
+  );
+  position: relative;
+  animation: load 2s infinite;
 }
+
 @keyframes load {
-  50%{
-    transform: scale(0.7)
+  50% {
+    transform: scale(0.7);
   }
 }
 
 .pokeball:before {
   position: absolute;
   content: "";
-  height: 3em;
-  width: 30em;
+  height: 30%;
+  width: 100%; /* Adjust width to 100% */
   background-color: #383b4f;
-  top: 14em;
+  top: 50%; /* Adjust position proportionally */
+  transform: translateY(-50%); /* Center vertically */
 }
 
 .pokeball:after {
   position: absolute;
   content: "";
-  height: 10em;
-  width: 10em;
+  height: 50%;
+  width: 50%;
+  max-width: 5rem; /* Ensure maximum width is 5rem */
   background-image: radial-gradient(
-  white 0px, white 10px,
-    #383b4f 10px, #383b4f 22.5px,
-    white 22.5px, white 50px,
-    #383b4f 50px
+    white 0px,
+    white 1rem,
+    #383b4f 1rem,
+    #383b4f 2.25rem,
+    white 2.25rem,
+    white 5rem,
+    #383b4f 5rem
   );
   border-radius: 50%;
-  top:10em;
-  left: 10em;
+  top: 50%; /* Adjust position proportionally */
+  left: 50%; /* Adjust position proportionally */
+  transform: translate(-50%, -50%); /* Center both vertically and horizontally */
 }

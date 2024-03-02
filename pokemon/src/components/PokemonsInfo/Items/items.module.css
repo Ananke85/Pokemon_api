@@ -1,31 +1,38 @@
 .itemCard {
-  max-width: 40em;
+  max-width: 21rem;
   background-color: var(--grey);
-  padding: 0 2em 1em 2em;
+  padding: 0 1.5rem 1rem 1.5rem;
   border: none;
-  border-radius: 1em;
+  border-radius: 1rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   text-transform: capitalize;
   transition: transform 0.3 ease;
-  border: 0.4em solid var(--yellow-main);
+  border: 5px solid var(--yellow-main);
   text-align: justify;
   min-height: fit-content;
   background-color: var(--blue-medium);
-  color: white;
+  color: var(--grey);
 }
 
-.image {
+.imageContainer {
   background-color: var(--grey);
   display: flex;
   align-items: center;
-  height: 6em;
-  border-radius: 4em;
-  padding-left: 1em;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 10rem;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4rem;
   color: var(--blue-dark);
+}
+.imageContainer img {
+  width: 3rem;
+  height: auto;
 }
 
 .itemCard:hover {
-  transform: translateY(-1em);
+  transform: translateY(-1rem);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
 }
 .titleDetails {
@@ -35,28 +42,26 @@
   width: 100%;
 }
 
-.titleDetails img {
-  width: 7em;
-}
-
 .nonCapi {
   text-transform: none;
 }
 
 .attributeContainer {
+  width: 100%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  column-gap: 2em;
-  color: var(--blue-dark);
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
 }
 
-.attribute {
-  background-color: white;
-  padding: 0.5em 1em;
-  border-radius: 2em;
-  border: none;
-  margin: 0.5em 0;
+.attributeContainer p {
+  font-size: 0.8rem;
+  background-color: var(--grey);
+  color: var(--blue-dark);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: -0.8rem;
 }
 
 .index {
@@ -67,15 +72,17 @@
 
 .grid {
   background-color: var(--yellow-main);
-  border-radius: 2em;
-  padding: 0 0 0 1em;
+  border-radius: 1rem;
+  padding: 0 1rem;
   display: grid;
-  grid-template-columns: 0.7fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr;
   justify-content: space-between;
   align-items: center;
+  gap: 0.4rem;
 }
-.grid h4 {
+.grid p {
   font-weight: bold;
+  font-size: 0.8rem;
 }
 
 .dropdown {
@@ -88,6 +95,9 @@
   width: fit-content;
   background-color: transparent;
 }
+.dropdown p {
+  font-weight: bold;
+}
 
 .dropdown span {
   color: var(--yellow-main);
@@ -97,21 +107,16 @@
   color: var(--blue-light);
 }
 .arrow {
-  font-size: 2em;
+  font-size: 1.5rem;
 }
 
 .active {
   transform: rotate(180deg);
-  font-size: 2em;
+  font-size: 1.5rem;
 }
 
+@media screen and (min-width: 320px) and (max-width: 480px) {
+}
 
-
-/* @media screen and (max-width: 2000px) {
-  .itemsContainer {
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box
-  }
-  
-} */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+}
