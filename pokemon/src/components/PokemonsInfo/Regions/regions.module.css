@@ -1,0 +1,154 @@
+.locationsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+
+}
+
+.locationCard {
+  width: 19rem;
+  background-color: var(--grey);
+  background: radial-gradient(circle, var(--blue-light), var(--blue-medium));
+  border-radius: 1rem;
+  padding: 0 1rem 2rem 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  color: var(--grey);
+  transition: transform 0.3 ease;
+}
+
+.locationCard:hover {
+  transform: translateY(-1rem);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.locationCard h5 {
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+}
+
+.regionTitle {
+  display: flex;
+  gap: 0.5rem;
+  text-transform: uppercase;
+}
+
+.nonCapi {
+  text-transform: none;
+}
+
+.regionOutlet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 2rem;
+
+}
+
+.regionDescription {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-top: -2rem;}
+
+.regionDescription img {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+.regionDescription p {
+  text-align: justify;
+}
+
+.buttonsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown button {
+  background-color: transparent;
+  width: fit-content;
+}
+.dropdown span {
+  color: var(--yellow-main);
+}
+.dropdown span:hover {
+  color: var(--blue-light)
+}
+.arrow {
+  font-size: 2rem;
+}
+.active {
+  transform: rotate(180deg);
+  font-size: 2rem;
+}
+.locations {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.loadingButtonsRegions {
+  display: flex;
+  gap: 3rem;
+}
+
+
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .regionTitle {
+    width: 100%;
+    text-align: center;
+    gap: 0;
+    flex-direction: column;
+  }
+  .regionDescription {
+    grid-template-columns: 1fr;
+  }
+  .title2 {
+    margin-top: -1.5rem;
+  }
+  .scrollButton {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .regionTitle {
+    width: 100%;
+    text-align: center;
+    gap: 0;
+    flex-direction: column;
+  }
+  .title2 {
+    margin-top: -1.5rem;
+  }
+  .regionDescription {
+    grid-template-columns: 1fr;
+  }
+  .locationsContainer {
+    justify-content: center;
+  }
+  .scrollButton {
+    align-self: center;
+    margin-top: 2rem;
+
+  }
+}
+
+

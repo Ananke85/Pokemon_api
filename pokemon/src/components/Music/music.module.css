@@ -1,0 +1,9 @@
+.themeSong > button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pause {
+  background-color: var(--blue-dark);
+}

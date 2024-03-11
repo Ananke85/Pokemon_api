@@ -1,0 +1,62 @@
+.upperBar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+}
+.upperBar a {
+  text-decoration: none;
+  color: var(--grey);
+  background-color: var(--blue-medium);
+  border-radius: 2rem;
+  padding:0.2rem 0.5rem;
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.upperBar a:hover {
+  background-color: var(--blue-light);
+}
+
+.upperBar a:focus {
+  background-color: var(--yellow-main);
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .upperBar {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: center;
+
+  }
+  .upperBar a {
+    width: 7rem;
+
+  };
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+.upperBar {
+  flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 6rem;
+
+}
+.upperBar a {
+  width: 10rem;
+  flex-wrap: wrap;
+    row-gap: 1rem
+}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .upperBar {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    margin-top: 3.5rem
+  }
+}

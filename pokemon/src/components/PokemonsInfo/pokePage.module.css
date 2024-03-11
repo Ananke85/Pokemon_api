@@ -1,0 +1,147 @@
+.pokePage {
+  padding: 8rem 4rem 2rem 4rem;
+}
+
+.pageOutlet {
+  margin-top: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.pageContainer {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.list {
+  width: 15%;
+}
+.description {
+  width: 100%;
+  border-bottom: 4px solid var(--yellow-main);
+}
+
+.description p {
+  text-align: justify;
+  font-size: 1rem;
+}
+
+.list a {
+  background-color: var(--blue-medium);
+  color: var(--grey);
+  text-decoration: none;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6em;
+  border-radius: 2rem;
+  text-transform: capitalize;
+}
+
+.list a:hover {
+  background-color: var(--blue-light);
+}
+
+.list a:focus {
+  background-color: var(--yellow-main);
+  font-weight: bold;
+}
+
+.loadingButtons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.loadingButtons button {
+  font-size: 1rem;
+  width: 5.5rem;
+}
+
+.loadingButtonsBerries {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+}
+
+.loadingButtonsItems {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  margin-bottom: 3em;
+}
+
+.itemsContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin: 3em auto;
+}
+
+/* Media query for responsiveness */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .pokePage {
+    padding: 14rem 2rem 2rem 2rem;
+  }
+  .pageOutlet {
+    flex-direction: column;
+  }
+
+  .list {
+    width: 100%;
+  }
+  .loadingButtons button {
+    width: 8rem;
+  }
+  .pageOutlet button {
+    align-self: center;
+  }
+  .itemsContainer {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .pokePage {
+    padding: 8rem 2rem 2rem 2rem;
+  }
+  .loadingButtons button {
+    width: 100%;
+  }
+  .list a {
+    padding-left: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .itemsContainer {
+    justify-content: center;
+  }
+}
+
+/* berries */
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .grid {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid {
+    justify-content: center;
+  }
+}
+

@@ -1,0 +1,22 @@
+.pokeList {
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 1rem;
+  text-transform: capitalize;
+  background-color: var(--grey);
+  border-radius: 0.5rem;
+}
+
+.pokeList li {
+  color: var(--blue-dark);
+  position: relative;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.pokeList li:hover {
+  color: var(--yellow-main);
+}
