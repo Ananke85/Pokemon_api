@@ -2,7 +2,7 @@ import { apiBlog } from "./api";
 
 export const getAllPosts = () => {
   return apiBlog
-    .get("/pokenews/?limit=6")
+    .get("/pokenews")
     .then((res) => res.data)
     .catch((error) => {
       console.log(error);
