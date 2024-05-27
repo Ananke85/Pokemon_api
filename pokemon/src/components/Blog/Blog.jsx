@@ -6,6 +6,7 @@ import { useState } from "react";
 import Spinner from "../Spinner/Spinner";
 
 const Blog = () => {
+
   const { data: posts, isLoading } = useQuery(["blogpost"], getAllPosts);
   const dates = posts && posts.map((post) => post.date);
   const limit = 6;
