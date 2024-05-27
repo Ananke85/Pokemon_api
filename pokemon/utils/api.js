@@ -7,7 +7,7 @@ export const api = axios.create({
 
 export const API_URL= 
 window.location.hostname === "lorenaspokesite.netlify.app" 
-? "https://pokemonapi-production-e47d.up.railway.app"
+? "https://pokemonapi-production-6197.up.railway.app"
 : "http://localhost:3005"
 
 export const apiBlog = axios.create({
