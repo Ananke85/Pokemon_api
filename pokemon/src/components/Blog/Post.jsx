@@ -4,25 +4,23 @@ import styles from "./blog.module.css";
 // import { getPostById } from "../../../utils/apiBlog";
 import RelatedPosts from "./RelatedPosts";
 import Spinner from "../Spinner/Spinner";
-import postsData from "../../data/posts.json"
+import postsData from "../../data/posts.json";
 import { useEffect, useState } from "react";
 
-
 const Post = () => {
-
   //To use if data is hosted on mongoDB
   // const { id } = useParams();
   // const { data, isLoading } = useQuery(["blogpost", id], getPostById);
 
-const {index} = useParams()
-const [data, setData] = useState(null)
-const [isLoading, setIsLoading] = useState(true)
+  const { index } = useParams();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-  const post = postsData[index];
-  setData(post);
-  setIsLoading(false)
-}, [index])
+  useEffect(() => {
+    const post = postsData[index];
+    setData(post);
+    setIsLoading(false);
+  }, [index]);
 
   const specialFeatures = data && data.special_features;
   const formatDate = (date) => {

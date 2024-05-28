@@ -3,7 +3,9 @@ export const POKEPAGE = "/pokemons"
 export const ABOUT = "/about"
 export const CONTACT = "/contact"
 export const BLOG = "/pokenews"
-export const BLOGPOST = "/pokenews/:id/:title"
+//para mongoDB
+// export const BLOGPOST = "/pokenews/:id/:title"
+export const BLOGPOST = "/pokenews/:index/:title"
 
 export const POKEMONS = "/pokemons/pokemon"
 export const BERRIES = "/pokemons/berries"

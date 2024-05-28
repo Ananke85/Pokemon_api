@@ -17,11 +17,12 @@ const RelatedPosts = () => {
 
 
   const {index} = useParams()
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [relatedPosts, setRelatedPosts] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0);
   const postsPerPage = 3;
 
+  //only if data is in json
   useEffect(() => {
     const post = postsData[index]
     setData(post)
@@ -47,6 +48,10 @@ const RelatedPosts = () => {
   const displayedPosts =
     relatedPosts?.slice(currentIndex, currentIndex + postsPerPage);
 
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
   return (
     <>
       <div className={styles.relatedContainer}>
@@ -70,6 +75,7 @@ const RelatedPosts = () => {
                     to={`/pokenews/${postsData.indexOf(post)}/${encodeURIComponent(
                       post.title.toLowerCase().replace(/\s+/g, "-")
                     )}`}
+                    onClick={scrollToTop}
                   >
                     <p>{post.title}</p>
                   </Link>

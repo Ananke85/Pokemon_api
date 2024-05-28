@@ -68,8 +68,9 @@ const Pokemons = () => {
               {pokeList &&
                 pokeList.map((pokemon, id) => (
                   <div key={id}>
-                    <Link to={`/pokemons/pokemon/${pokemon.name}`}>
+                    <Link to={`/pokemons/pokemon/${pokemon.name}`} onClick={scrollToTop}>
                       {pokemon.name}
+                    
                     </Link>
                   </div>
                 ))}
