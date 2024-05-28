@@ -1,19 +1,35 @@
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query";
+// import { getAllPosts } from "../../../utils/apiBlog";
 import styles from "./blog.module.css";
-import { getAllPosts } from "../../../utils/apiBlog";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import postsData from "../../data/posts.json"
 
 // eslint-disable-next-line react/prop-types
 const RelatedPosts = () => {
-  const id = useParams().id;
-  const { data: posts } = useQuery(["blogpost"], getAllPosts);
 
-  const relatedPosts =
-    posts && posts.filter((post) => post._id !== id.toString());
+  //To use if data is hosted on mongoDB
+  // const id = useParams().id;
+  // const { data: posts } = useQuery(["blogpost"], getAllPosts);
 
+  // const relatedPosts =
+  //   posts && posts.filter((post) => post._id !== id.toString());
+
+
+  const {index} = useParams()
+  const [data, setData] = useState(null)
+  const [relatedPosts, setRelatedPosts] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0);
   const postsPerPage = 3;
+
+  useEffect(() => {
+    const post = postsData[index]
+    setData(post)
+    const filteredPosts = postsData.filter((_, idx) => idx != parseInt(index))
+    setRelatedPosts(filteredPosts)
+  }, [index])
+
+
 
   const handleNext = () => {
     setCurrentIndex((currentIndex) =>
@@ -29,8 +45,7 @@ const RelatedPosts = () => {
   };
 
   const displayedPosts =
-    relatedPosts &&
-    relatedPosts.slice(currentIndex, currentIndex + postsPerPage);
+    relatedPosts?.slice(currentIndex, currentIndex + postsPerPage);
 
   return (
     <>
@@ -48,11 +63,11 @@ const RelatedPosts = () => {
             <span className="icon-point-left"></span>
           </button>
           <div className={styles.related}>
-            {posts &&
-              displayedPosts.map((post) => (
-                <div key={post._id} className={styles.postito}>
+            {data &&
+              displayedPosts.map((post, index) => (
+                <div key={index} className={styles.postito}>
                   <Link
-                    to={`/pokenews/${post._id}/${encodeURIComponent(
+                    to={`/pokenews/${postsData.indexOf(post)}/${encodeURIComponent(
                       post.title.toLowerCase().replace(/\s+/g, "-")
                     )}`}
                   >

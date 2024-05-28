@@ -3,15 +3,17 @@
 import styles from "./blog.module.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import Spinner from "../Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 import postsData from "../../data/posts.json"
 
 const Blog = () => {
 
   const [posts, setPosts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setPosts(postsData)
+    setPosts(postsData);
+    setIsLoading(false)
   }, [])
 
 
@@ -51,22 +53,22 @@ const Blog = () => {
 
   return (
     <>
-      {/* {isLoading && <Spinner />} */}
-      {/* {!isLoading && ( */}
+      {isLoading && <Spinner />} */
+      {!isLoading && (
         <>
           <div className={styles.blogContainer}>
             <h1>PokéNews</h1>
             <div className={styles.blog}>
               {posts &&
                 visiblePosts.map((post, index) => (
-                  <div key={post._id} className={styles.blogCard}>
+                  <div key={index} className={styles.blogCard}>
                     <h5>{post.title}</h5>
                     <p>{formattedDates[index]}</p>
                     <img src={post.image}></img>
                     <p className={styles.intro}>{post.intro}</p>
 
                     <Link
-                      to={`/pokenews/${post._id}/${encodeURIComponent(
+                      to={`/pokenews/${index}/${encodeURIComponent(
                         post.title.toLowerCase().replace(/\s+/g, "-")
                       )}`}
                     >
@@ -88,8 +90,8 @@ const Blog = () => {
               )}
             </div>
           </div>
-        </>
-      {/* )} */}
+          </>
+      )}
     </>
   );
 };

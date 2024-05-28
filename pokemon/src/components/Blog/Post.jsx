@@ -1,15 +1,30 @@
 import { useParams } from "react-router-dom";
 import styles from "./blog.module.css";
-import { useQuery } from "react-query";
-import { getPostById } from "../../../utils/apiBlog";
+// import { useQuery } from "react-query";
+// import { getPostById } from "../../../utils/apiBlog";
 import RelatedPosts from "./RelatedPosts";
 import Spinner from "../Spinner/Spinner";
+import postsData from "../../data/posts.json"
+import { useEffect, useState } from "react";
+
 
 const Post = () => {
-  const { id } = useParams();
-  const { data, isLoading } = useQuery(["blogpost", id], getPostById);
+
+  //To use if data is hosted on mongoDB
+  // const { id } = useParams();
+  // const { data, isLoading } = useQuery(["blogpost", id], getPostById);
+
+const {index} = useParams()
+const [data, setData] = useState(null)
+const [isLoading, setIsLoading] = useState(true)
+
+useEffect(() => {
+  const post = postsData[index];
+  setData(post);
+  setIsLoading(false)
+}, [index])
+
   const specialFeatures = data && data.special_features;
-console.log("special", specialFeatures)
   const formatDate = (date) => {
     if (data && data.date) {
       const dateObj = new Date(date);
@@ -67,8 +82,8 @@ console.log("special", specialFeatures)
                 ))}
 
                 {specialFeatures &&
-                  specialFeatures.map((feature) => (
-                    <div key={feature._id} className={styles.features}>
+                  specialFeatures.map((feature, index) => (
+                    <div key={index} className={styles.features}>
                       <h5>{feature.title}</h5>
                       {feature.image && (
                         <div className={styles.picColumn}>
