@@ -5,12 +5,12 @@ export const api = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-export const API_URL= 
-window.location.hostname === "lorenaspokesite.netlify.app" 
-? "https://pokemonapi-production-6197.up.railway.app"
-: "http://localhost:3005"
+// export const API_URL= 
+// window.location.hostname === "lorenaspokesite.netlify.app" 
+// ? "https://pokemonapi-production-6197.up.railway.app"
+// : "http://localhost:3005"
 
-export const apiBlog = axios.create({
-  baseURL: API_URL,
-  // baseURL: "http://localhost:3005",
-});
+// export const apiBlog = axios.create({
+//   baseURL: API_URL,
+//   // baseURL: "http://localhost:3005",
+// });
