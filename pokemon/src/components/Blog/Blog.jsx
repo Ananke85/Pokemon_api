@@ -1,14 +1,25 @@
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query";
+// import { getAllPosts } from "../../../utils/apiBlog";
 import styles from "./blog.module.css";
-import { getAllPosts } from "../../../utils/apiBlog";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import Spinner from "../Spinner/Spinner";
+import { useEffect, useState } from "react";
+// import Spinner from "../Spinner/Spinner";
+import postsData from "../../data/posts.json"
 
 const Blog = () => {
 
-  const { data: posts, isLoading } = useQuery(["blogpost"], getAllPosts);
-  const dates = posts && posts.map((post) => post.date);
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    setPosts(postsData)
+  }, [])
+
+
+  //To use if data is hosted on mongoDB
+  // const { data: posts, isLoading } = useQuery(["blogpost"], getAllPosts);
+
+
+  const dates = posts?.map((post) => post.date);
   const limit = 6;
   const [postsCount, setpostsCount] = useState(6);
 
@@ -40,8 +51,8 @@ const Blog = () => {
 
   return (
     <>
-      {isLoading && <Spinner />}
-      {!isLoading && (
+      {/* {isLoading && <Spinner />} */}
+      {/* {!isLoading && ( */}
         <>
           <div className={styles.blogContainer}>
             <h1>PokéNews</h1>
@@ -78,7 +89,7 @@ const Blog = () => {
             </div>
           </div>
         </>
-      )}
+      {/* )} */}
     </>
   );
 };
