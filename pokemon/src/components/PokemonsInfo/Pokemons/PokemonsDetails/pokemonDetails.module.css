@@ -122,7 +122,7 @@
 }
 
 .backgroundImage {
-  background-image: url("C:\Users\anank\Documents\Ananke85\Pokemon_api\pokemon\src\assets\background_pokemon.jpg");
+  background-image: url("../../../../assets/background_pokemon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
